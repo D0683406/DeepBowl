@@ -73,8 +73,3 @@ table.to_csv('./DATA/ram_list.csv', encoding='utf_8_sig')
 
 
 
-
-#%%
-if not (re.match('含稅價：',u.get_text())):
-            tt=re.search("(.{0,36})\d{1,2}G",u.get_text()).group(0)
-            print(tt)
