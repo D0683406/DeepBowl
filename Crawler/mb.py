@@ -45,7 +45,14 @@ for i in mb_all:
         if(re.match('網路：',u.string)):
             network_list.append(u.string.strip('網路：'))
         if(re.match('保固：',u.string)):
-            warranty_list.append(u.string.strip('保固：'))
+            warranty=re.search("(.)(年)",u.string.strip('保固：')).group(1)
+            if warranty == '三':
+                warranty='3'
+            if warranty == '四':
+                warranty='4'
+            if warranty == '五':
+                warranty='5'
+            warranty_list.append(warranty)
     temp=i.findAll("p")
     if  not (re.match('.*Cooling Kit.*',temp[0].string)):
         tempp=re.sub('【.*】',"",temp[0].string)
@@ -53,7 +60,7 @@ for i in mb_all:
         name_list.append(re.search("(.*)\(",tempp[3:]).group(1))
         money=re.search(r"NT\d*",i.get_text())
         price_list.append(money.group().strip("NT"))
-table = pd.DataFrame({"brand":brand_list,"name":name_list,"cpu_type":cpu_type_list,"size":size_list,"display_port":display_port_list,"storage":storage_list,"built_in":built_in_list,"network":network_list,"warranty":warranty_list,"price":price_list})
+table = pd.DataFrame({"brand":brand_list,"name":name_list,"cpu_type":cpu_type_list,"size":size_list,"display_port":display_port_list,"storage":storage_list,"built_in":built_in_list,"network":network_list,"warranty(years)":warranty_list,"price":price_list})
 table
 table.to_csv('./DATA/mb_list.csv', encoding='utf_8_sig')
 

@@ -27,20 +27,26 @@ for i in hdd_all[10:48]:
     brand_list.append(brand)
     size=re.search("\d{1,2}TB|500G",i).group(0)
     size_list.append(size)
-    if not(re.search("【.*】",i)):
+    if not(re.search("【(.*)】",i)):
         name=""
     else:
-        name=re.search("【.*】",i).group(0)
+        name=re.search("【(.*)】",i).group(1)
     name_list.append(name)
-    cache=re.search("\d*M",i).group(0)
+    cache=re.search("(\d*)M",i).group(1)
     cache_list.append(cache)
-    rpm=re.search("\d*轉",i).group(0)
+    rpm=re.search("(\d*)轉",i).group(1)
     rpm_list.append(rpm)
-    warranty=re.search(".年",i).group(0)
+    warranty=re.search("(.)(年)",i).group(1)
+    if warranty == '三':
+        warranty='3'
+    if warranty == '四':
+        warranty='4'
+    if warranty == '五':
+        warranty='5'
     warranty_list.append(warranty)
-    price=re.search("\$\d*",i).group(0)
+    price=re.search("\$(\d*)",i).group(1)
     price_list.append(price)
 print(len(brand_list),len(size_list),len(name_list),len(cache_list),len(rpm_list),len(warranty_list),len(price_list))
-table=pd.DataFrame({"brand":brand_list,"size":size_list,"name":name_list,"cache":cache_list,"rpm":rpm_list,"warranty":warranty_list,"price":price_list})
+table=pd.DataFrame({"brand":brand_list,"size":size_list,"name":name_list,"cache(M)":cache_list,"rpm(轉)":rpm_list,"warranty(years)":warranty_list,"price":price_list})
 table.to_csv('./DATA/hdd_list.csv', encoding='utf_8_sig')
 #%%

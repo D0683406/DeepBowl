@@ -1,9 +1,3 @@
-
-# coding: utf-8
-
-# In[1]:
-
-
 #%%
 import re
 import pandas as pd
@@ -14,7 +8,6 @@ html = requests.get("http://www.coolpc.com.tw/evaluate.php")
 soup = BeautifulSoup(html.content,'html5lib')
 ##擷取完整選項
 selects = soup.find_all("select",{"class":"s"})
-
 
 #%%
 
@@ -44,6 +37,7 @@ name_list = []
 core_list =[]
 price_list = []
 speed_list=[]
+tdp_list=[]
 for i in cpu_all:
     #分割前面的廠牌與型號
     temp = i.split('【')
@@ -59,8 +53,12 @@ for i in cpu_all:
     #speed
     temp=re.findall(r'】[^/]*/',i)
     #speed_list.append(temp[0])
-    
-table = pd.DataFrame({"brand":brand_list,"name":name_list,"core":core_list,"price":price_list,"score":"N/A","rank":"N/A"})
+    if(re.search("\d*W",i)):
+        tdp=re.search("\d*W",i).group(0)
+    else:
+            tdp=''
+    tdp_list.append(tdp)
+table = pd.DataFrame({"brand":brand_list,"name":name_list,"core":core_list,"TDP":tdp_list,"price":price_list,"score":"N/A","rank":"N/A"})
 #把重複的drop掉    
 table = table.drop_duplicates(subset='name', keep='first', inplace=False)
 #未有分數、排名
@@ -81,4 +79,7 @@ for i in range(0,len(table)):
             table.iloc[i]['score'] = pd_rank[pd_rank['name'].str.lower().str.contains(table.iloc[i]['name'].lower().split()[-1]) ].iloc[0]['score']
             table.iloc[i]['rank'] = pd_rank[pd_rank['name'].str.lower().str.contains(table.iloc[i]['name'].lower().split()[-1]) ].iloc[0]['rank']
 
-table.to_csv('./DATA/cpu_list.csv', encoding='utf-8')
+table.to_csv('./DATA/cpu_list.csv', encoding='utf_8_sig')
+
+
+#%%

@@ -79,23 +79,31 @@ for i in ssd_all:
 
     #保固
     if not (re.search(r".年",i)):
-        warranty=''
+        warranty='向廠商詢問'
     else :
-        warranty=re.search(r".年",i).group(0)
+        warranty=re.search(r"(.)年",i).group(1)
+        if warranty == '三':
+            warranty='3'
+        if warranty == '四':
+            warranty='4'
+        if warranty == '五':
+            warranty='5'
+        if warranty == '十':
+            warranty='10'
 
     
     
     warranty_list.append(warranty)
 
     #價錢
-    price=re.search("\$\d*",i).group(0)
+    price=re.search("\$(\d*)",i).group(1)
     price_list.append(price)
     
 
     
 
 
-table = pd.DataFrame({"brand_list":brand_list,"name":name_list,"size":size_list,"interface":interface_list,"read":read_list,"write":write_list,'warranty':warranty_list,'price':price_list})
+table = pd.DataFrame({"brand_list":brand_list,"name":name_list,"size":size_list,"interface":interface_list,"read":read_list,"write":write_list,'warranty(year)':warranty_list,'price':price_list})
 table.to_csv('./DATA/ssd_list.csv', encoding='utf_8_sig')
 
     
@@ -103,9 +111,6 @@ table.to_csv('./DATA/ssd_list.csv', encoding='utf_8_sig')
     
 
 
-#%%
-if re.match(r'world', 'hello world!') :
-    print("123")
 
 
 #%%

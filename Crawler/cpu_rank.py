@@ -29,5 +29,5 @@ df = table
 df['rank'] = df['rank'].astype('int')
 df = df.drop(df[ df['rank'] > 1300].index)
 
-df.to_csv("./DATA/cpu_rank_list.csv", index=False, encoding="utf-8")
+df.to_csv("./DATA/cpu_rank_list.csv", index=False, encoding="utf_8_sig")
 
