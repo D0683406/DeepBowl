@@ -1,4 +1,9 @@
-#test
+
+# coding: utf-8
+
+# In[1]:
+
+
 #%%
 import re
 import pandas as pd
@@ -55,9 +60,25 @@ for i in cpu_all:
     temp=re.findall(r'】[^/]*/',i)
     #speed_list.append(temp[0])
     
-    
-table = pd.DataFrame({"brand":brand_list,"name":name_list,"core":core_list,"price":price_list})
-table.to_csv('./DATA/cpu_list.csv', encoding='utf_8_sig')
+table = pd.DataFrame({"brand":brand_list,"name":name_list,"core":core_list,"price":price_list,"score":"N/A","rank":"N/A"})
+#把重複的drop掉    
+table = table.drop_duplicates(subset='name', keep='first', inplace=False)
+#未有分數、排名
 
+pd_rank = pd.read_csv('./DATA/cpu_rank_list.csv')
 
-#%%
+for i in range(0,len(table)):
+    if pd_rank[pd_rank['name'].str.lower().str.contains(table.iloc[i]['name'].lower()) ].empty == False:
+        #若出現兩筆資料選第一筆的分數就好，取近似 ex: Pentium G4560, Pentium G4560T
+        table.iloc[i]['score'] = pd_rank[pd_rank['name'].str.lower().str.contains(table.iloc[i]['name'].lower()) ].iloc[0]['score']
+        table.iloc[i]['rank'] = pd_rank[pd_rank['name'].str.lower().str.contains(table.iloc[i]['name'].lower()) ].iloc[0]['rank']
+
+for i in range(0,len(table)):
+    if table.iloc[i]['score'] == 'N/A':
+        #如果還是N/A就用名稱的最後一個部分來尋找分數
+        if pd_rank[pd_rank['name'].str.lower().str.contains(table.iloc[i]['name'].lower().split()[-1]) ].empty == False:
+            #若出現兩筆資料選第一筆的分數就好，取近似 ex: Pentium G4560, Pentium G4560T
+            table.iloc[i]['score'] = pd_rank[pd_rank['name'].str.lower().str.contains(table.iloc[i]['name'].lower().split()[-1]) ].iloc[0]['score']
+            table.iloc[i]['rank'] = pd_rank[pd_rank['name'].str.lower().str.contains(table.iloc[i]['name'].lower().split()[-1]) ].iloc[0]['rank']
+
+table.to_csv('./DATA/cpu_list.csv', encoding='utf-8')
