@@ -73,3 +73,6 @@ table.to_csv('./DATA/ram_list.csv', encoding='utf_8_sig')
 
 
 
+
+
+#%%
