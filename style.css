@@ -1,0 +1,30 @@
+@charset "UTF-8";
+/* Body */
+html{
+	height: 100%;
+}
+body {
+    font-family: "微軟正黑體", "Microsoft JhengHei", monospace;
+	background-image: url(./images/background.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.nav-item{
+    margin-top: 1%;
+    margin-right: 10%;
+}
+
+
+
+
+.btn-outline-light{
+    width: 100%;
+    margin-top:20%;
+    font-size: 24px;
+    height:6%;
+    border: 2px solid white;    
+}
+   

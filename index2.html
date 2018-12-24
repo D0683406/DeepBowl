@@ -1,0 +1,35 @@
+<head>
+  <link rel="stylesheet" href="css/swiper.css">
+  <script src="js/idangerous.swiper-2.x.min.js"></script>
+  <script src="js/swiper.js"></script>
+</head>
+
+<body>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"> Slide1</div>
+      <div class="swiper-slide"> Slide2</div>
+      <div class="swiper-slide"> Slide3</div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next">123</div>
+    <div class="swiper-button-prev">132</div>
+  </div>
+
+
+
+
+  <script>
+      var swiper = new Swiper('.swiper-container', {
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'fraction',
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    </script>
+</body>
