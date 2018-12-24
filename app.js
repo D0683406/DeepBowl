@@ -1,28 +1,31 @@
-var express = require("express");
+var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
 var app = express();
+var routes = require('./routes/index');
 var users = require('./routes/users');
-const port = 3000;
 
-// 設定 Route
-app.get("/", function(req, res) {
-    res.sendFile(__dirname + "/" + "index.html");
-});
+// 在port 3000
+var port = process.env.PORT || 3000;
 
-// DataBase 
+// create
+app.listen(port);
+
+// 判斷有沒有建立成功
+if(port === 3000){
+  console.log('RUN http://localhost:3000/')
+}
+
+
+// 連接資料庫 
 var mysql = require("mysql");
-
+// 連接資料庫訊息 "deepbowl"為資料庫名稱
 var con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
-    database: "test"
+    database: "deepbowl"
 });
-
+//判斷有沒有連線成功
 con.connect(function(err) {
     if (err) {
         console.log('connecting error');
@@ -31,25 +34,19 @@ con.connect(function(err) {
     console.log('connecting success');
 });
 
-// 建立 application/x-www-form-urlencoded 編碼解析處理函式
-const bodyParser = require('body-parser');
-const urlencodedParser = bodyParser.urlencoded({ extended: false });
-//404 not found
-app.get("*", function(req, res) {
-    res.status(404).send("oops, 404 not found");
-  });
+// 使用ejs模板 *ejs模板跟html差不多 但功能比較多
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
-app.post("/process_post", urlencodedParser, function(req, res) {
-    const firstName = req.body.first_name;
-    const lastName = req.body.last_name;
-    if(firstName=='s'){res.send('Hello, 你成功了');}
-    else{res.send('你失敗了')}
-    
-    
-    //else{res.send(`你失敗了`)}
+// 登入資料庫
+app.use(function(req, res, next) {
+    req.con = con;
+    next();
 });
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
-//透過引入的 express 模組，產生一個 App server，並且讓 server 監聽 3000 port，
-//當有人發送請求到 3000 時，server 就可以監聽到請求，並且依照 Route 的設定，進行不同的處理，
-//最後回傳內容給請求者。 
+//使用下面的js檔
+app.use('/', routes);
+app.use('/users', users);
+
+//這個沒打不能跑 我也不知道幹嘛的
+module.exports = app;
