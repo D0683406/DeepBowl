@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
         var data = rows;
 
         //運行index.ejs
-        res.render('index', { title: 'Account Information', data: data});
+        res.render('index2', { title: 'Account Information', data: data});
     });
 
 });

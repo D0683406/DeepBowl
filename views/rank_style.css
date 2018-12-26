@@ -1,0 +1,39 @@
+body {
+    font-family: "微軟正黑體", "Microsoft JhengHei", monospace;
+    /*background-image: ;*/
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+  }
+.srank{
+    position: absolute;
+    top:20%;
+    left: 0.7%;
+    width: 2%;
+    font-size:150%;
+}
+.cpu_images{
+    position: absolute;
+    top: 5%;
+    left: 6%;
+    height: 95%;
+}
+.rank_information{
+    position: absolute;
+    top: 35%;
+    left: 16%;
+    width: 30%;
+    height: 93%;
+    line-height: 10%;
+}
+.rank_bar{
+    position: absolute;
+    top: 30%;
+    left: 27%;
+    width: 72%;
+    height: 40%;
+}
+.list-group-item-action{
+    height: 15%;
+}

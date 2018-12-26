@@ -17,14 +17,65 @@ body {
     margin-right: 10%;
 }
 
-
-
-
-.btn-outline-light{
-    width: 100%;
-    margin-top:20%;
-    font-size: 24px;
-    height:6%;
-    border: 2px solid white;    
-}
    
+html, body {
+    position: relative;
+    height: 100%;
+  }
+
+  .swiper-container {
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+  /*進度條*/
+  div.swiper-pagination.swiper-pagination-progressbar {
+  top: inherit;
+  bottom: 0;
+  }
+  .sw01,
+  .sw02,
+  .sw03,
+  .sw04,
+  .sw05 {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  }
+  .sw01{
+    background-image: url("./images/background.jpg");
+  }
+  .sw02,
+  .sw03,
+  .sw04,
+  .sw05,
+  .sw06 {
+    background-image: url("images/Background2.png");
+  }
+
+
+#home_build{
+    position: absolute;
+    top: 70%;
+    right: 25%;
+    width: 50%;
+    height: 20%;
+}
+#build{
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    width: 7%;
+    height: 5%;
+  }
