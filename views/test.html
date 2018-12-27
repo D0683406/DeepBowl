@@ -2,294 +2,44 @@
 <html lang="en">
 
 <head>
-
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <!-- Bootstrap core CSS -->
+  <title>幫組電腦的虛擬學長</title>
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="css/swiper.min.css">
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="rank_style.css" rel="stylesheet">
-  <title>CPU排名</title>
+
+  
+  <!-- Demo styles -->
+  <style>
+  </style>
 </head>
 
 <body>
-  <!-- Page Content -->
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 ">
-        <h1 class="mt-5 text-center">CPU排名</h1>
-        </br>
-        <div class="col-lg-12 text-center ">
-          <a href="rank.html"><button type="button" class="btn btn-outline-secondary btn-lg"> CPU </button></a>
-          <button type="button" class="btn btn-outline-secondary btn-lg"> GPU </button></div>
-
-        </br>
-        </br>
-
-        <button type="button" class="list-group-item list-group-item-action">
-          <div class="row">
-            <div class="srank">
-                <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">1</a>
-            </div>
-            <div class="cpu_images">
-              <img src="images/cpu_images/Ryzen TR2 2990WX.png" style="height: 98%;">
-            </div>
-            <div class="rank_information">
-              <p>Intel i9-9940X</p>
-              <p>售價 43500</p>
-            </div>
-            <div class="rank_bar">
-                <div class="progress" style="height: 90%;">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
-                      aria-valuemin="50" aria-valuemax="92.42" style="width: 92.42%">96.2121</div>
-                </div>
-            </div>
-          </div>
-        </button>
-        
-        <button type="button" class="list-group-item list-group-item-action">
-            <div class="row">
-              <div class="srank">
-                  <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">1</a>
-              </div>
-              <div class="cpu_images">
-                <img src="images/cpu_images/Ryzen TR2 2990WX.png" style="height: 98%;">
-              </div>
-              <div class="rank_information">
-                <p>Intel i9-9940X</p>
-                <p>售價 43500</p>
-              </div>
-              <div class="rank_bar">
-                  <div class="progress" style="height: 90%;">
-                      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
-                        aria-valuemin="50" aria-valuemax="92.42" style="width: 92.42%">96.2121</div>
-                  </div>
-              </div>
-            </div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
           </button>
-          <button type="button" class="list-group-item list-group-item-action">
-              <div class="row">
-                <div class="srank">
-                    <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">1</a>
-                </div>
-                <div class="cpu_images">
-                  <img src="images/cpu_images/Ryzen TR2 2990WX.png" style="height: 98%;">
-                </div>
-                <div class="rank_information">
-                  <p>Intel i9-9940X</p>
-                  <p>售價 43500</p>
-                </div>
-                <div class="rank_bar">
-                    <div class="progress" style="height: 90%;">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
-                          aria-valuemin="50" aria-valuemax="92.42" style="width: 92.42%">96.2121</div>
-                    </div>
-                </div>
-              </div>
-            </button>
-            <button type="button" class="list-group-item list-group-item-action">
-                <div class="row">
-                  <div class="srank">
-                      <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">1</a>
-                  </div>
-                  <div class="cpu_images">
-                    <img src="images/cpu_images/Ryzen TR2 2990WX.png" style="height: 98%;">
-                  </div>
-                  <div class="rank_information">
-                    <p>Intel i9-9940X</p>
-                    <p>售價 43500</p>
-                  </div>
-                  <div class="rank_bar">
-                      <div class="progress" style="height: 90%;">
-                          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
-                            aria-valuemin="50" aria-valuemax="92.42" style="width: 92.42%">96.2121</div>
-                      </div>
-                  </div>
-                </div>
-              </button>
-              <button type="button" class="list-group-item list-group-item-action">
-                  <div class="row">
-                    <div class="srank">
-                        <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">1</a>
-                    </div>
-                    <div class="cpu_images">
-                      <img src="images/cpu_images/Ryzen TR2 2990WX.png" style="height: 98%;">
-                    </div>
-                    <div class="rank_information">
-                      <p>Intel i9-9940X</p>
-                      <p>售價 43500</p>
-                    </div>
-                    <div class="rank_bar">
-                        <div class="progress" style="height: 90%;">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
-                              aria-valuemin="50" aria-valuemax="92.42" style="width: 92.42%">96.2121</div>
-                        </div>
-                    </div>
-                  </div>
-                </button>
-                <button type="button" class="list-group-item list-group-item-action">
-                    <div class="row">
-                      <div class="srank">
-                          <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">1</a>
-                      </div>
-                      <div class="cpu_images">
-                        <img src="images/cpu_images/Ryzen TR2 2990WX.png" style="height: 98%;">
-                      </div>
-                      <div class="rank_information">
-                        <p>Intel i9-9940X</p>
-                        <p>售價 43500</p>
-                      </div>
-                      <div class="rank_bar">
-                          <div class="progress" style="height: 90%;">
-                              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
-                                aria-valuemin="50" aria-valuemax="92.42" style="width: 92.42%">96.2121</div>
-                          </div>
-                      </div>
-                    </div>
-                  </button>
-                  <button type="button" class="list-group-item list-group-item-action">
-                      <div class="row">
-                        <div class="srank">
-                            <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">1</a>
-                        </div>
-                        <div class="cpu_images">
-                          <img src="images/cpu_images/Ryzen TR2 2990WX.png" style="height: 98%;">
-                        </div>
-                        <div class="rank_information">
-                          <p>Intel i9-9940X</p>
-                          <p>售價 43500</p>
-                        </div>
-                        <div class="rank_bar">
-                            <div class="progress" style="height: 90%;">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
-                                  aria-valuemin="50" aria-valuemax="92.42" style="width: 92.42%">96.2121</div>
-                            </div>
-                        </div>
-                      </div>
-                    </button>
-                    <button type="button" class="list-group-item list-group-item-action">
-                        <div class="row">
-                          <div class="srank">
-                              <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">1</a>
-                          </div>
-                          <div class="cpu_images">
-                            <img src="images/cpu_images/Ryzen TR2 2990WX.png" style="height: 98%;">
-                          </div>
-                          <div class="rank_information">
-                            <p>Intel i9-9940X</p>
-                            <p>售價 43500</p>
-                          </div>
-                          <div class="rank_bar">
-                              <div class="progress" style="height: 90%;">
-                                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
-                                    aria-valuemin="50" aria-valuemax="92.42" style="width: 92.42%">96.2121</div>
-                              </div>
-                          </div>
-                        </div>
-                      </button>
-                      <button type="button" class="list-group-item list-group-item-action">
-                          <div class="row">
-                            <div class="srank">
-                                <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">1</a>
-                            </div>
-                            <div class="cpu_images">
-                              <img src="images/cpu_images/Ryzen TR2 2990WX.png" style="height: 98%;">
-                            </div>
-                            <div class="rank_information">
-                              <p>Intel i9-9940X</p>
-                              <p>售價 43500</p>
-                            </div>
-                            <div class="rank_bar">
-                                <div class="progress" style="height: 90%;">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
-                                      aria-valuemin="50" aria-valuemax="92.42" style="width: 92.42%">96.2121</div>
-                                </div>
-                            </div>
-                          </div>
-                        </button>
-                        <button type="button" class="list-group-item list-group-item-action">
-                            <div class="row">
-                              <div class="srank">
-                                  <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">1</a>
-                              </div>
-                              <div class="cpu_images">
-                                <img src="images/cpu_images/Ryzen TR2 2990WX.png" style="height: 98%;">
-                              </div>
-                              <div class="rank_information">
-                                <p>Intel i9-9940X</p>
-                                <p>售價 43500</p>
-                              </div>
-                              <div class="rank_bar">
-                                  <div class="progress" style="height: 90%;">
-                                      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
-                                        aria-valuemin="50" aria-valuemax="92.42" style="width: 92.42%">96.2121</div>
-                                  </div>
-                              </div>
-                            </div>
-                          </button>
-                          <button type="button" class="list-group-item list-group-item-action">
-                              <div class="row">
-                                <div class="srank">
-                                    <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">1</a>
-                                </div>
-                                <div class="cpu_images">
-                                  <img src="images/cpu_images/Ryzen TR2 2990WX.png" style="height: 98%;">
-                                </div>
-                                <div class="rank_information">
-                                  <p>Intel i9-9940X</p>
-                                  <p>售價 43500</p>
-                                </div>
-                                <div class="rank_bar">
-                                    <div class="progress" style="height: 90%;">
-                                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
-                                          aria-valuemin="50" aria-valuemax="92.42" style="width: 92.42%">96.2121</div>
-                                    </div>
-                                </div>
-                              </div>
-                            </button>
-                            <button type="button" class="list-group-item list-group-item-action">
-                                <div class="row">
-                                  <div class="srank">
-                                      <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">1</a>
-                                  </div>
-                                  <div class="cpu_images">
-                                    <img src="images/cpu_images/Ryzen TR2 2990WX.png" style="height: 98%;">
-                                  </div>
-                                  <div class="rank_information">
-                                    <p>Intel i9-9940X</p>
-                                    <p>售價 43500</p>
-                                  </div>
-                                  <div class="rank_bar">
-                                      <div class="progress" style="height: 90%;">
-                                          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
-                                            aria-valuemin="50" aria-valuemax="92.42" style="width: 92.42%">96.2121</div>
-                                      </div>
-                                  </div>
-                                </div>
-                              </button>
-                              <button type="button" class="list-group-item list-group-item-action">
-                                  <div class="row">
-                                    <div class="srank">
-                                        <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">1</a>
-                                    </div>
-                                    <div class="cpu_images">
-                                      <img src="images/cpu_images/Ryzen TR2 2990WX.png" style="height: 98%;">
-                                    </div>
-                                    <div class="rank_information">
-                                      <p>Intel i9-9940X</p>
-                                      <p>售價 43500</p>
-                                    </div>
-                                    <div class="rank_bar">
-                                        <div class="progress" style="height: 90%;">
-                                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
-                                              aria-valuemin="50" aria-valuemax="92.42" style="width: 92.42%">96.2121</div>
-                                        </div>
-                                    </div>
-                                  </div>
-                                </button>
-
-
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 
