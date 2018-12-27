@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Bootstrap core CSS -->
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link href="./css/qa_all_style.css" rel="stylesheet">
+  <title>RAM Q&A</title>
+
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="../css/swiper.min.css">
+
+  <!-- BootStraps JS-->
+  <script src="./js/jquery-3.3.1.min.js"></script>
+  <script>window.jQuery</script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+  <!-- chatbot -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Chatbot</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <iframe allow="microphone;" width="100%" height="500" src="https://console.dialogflow.com/api-client/demo/embedded/d43607d5-d943-4736-9e0e-8f23ea18557d">
+          </iframe>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Swiper -->
+  <div class="swiper-container">
+
+    <div class="swiper-wrapper">
+      <div class="swiper-slide sw01">
+        <!-- 上方功能列 -->
+        <img src="./images/card.jpg" id="home_card">
+        <div class="home">
+            <a href="/index"><button type="button" class="btn btn-outline-light" id="build">組電腦</button></a>
+            <a href="/cpu_rank"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
+            <a href="/qa"><button type="button" class="btn btn-outline-light" id="qa">Q&A</button></a>
+            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" id="content">
+                Chatbot
+            </button>
+            <a href="/qa_cpu"><button type="button" class="btn btn-outline-light " id="choice_CPU">CPU Q&A</button></a>
+      <a href="/qa_gpu"><button type="button" class="btn btn-outline-light " id="choice_GPU">GPU Q&A</button></a>
+      <a href="/qa_ram"><button type="button" class="btn btn-outline-light active" id="choice_RAM">RAM Q&A</button></a>
+      <a href="/qa_mb"><button type="button" class="btn btn-outline-light" id="choice_MB">MB Q&A</button></a>
+      <a href="/qa_disk"><button type="button" class="btn btn-outline-light" id="choice_DISK">DISK Q&A</button></a>
+          </div>
+        <!--Q1-->
+        <div class="question_table">
+          Q1：現在主機板所支援的記憶體規格？
+        </div>
+        <div class="shortanswer_table">
+          A：現今市面上主機板所支援的記憶體已統一為DDR4一種規格。
+        </div>
+      </div>
+      <div class="swiper-slide sw02">
+         <!-- 上方功能列 -->
+         <img src="./images/card.jpg" id="home_card">
+         <div class="home">
+                <a href="/index"><button type="button" class="btn btn-outline-light" id="build">組電腦</button></a>
+                <a href="/cpu_rank"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
+                <a href="/qa"><button type="button" class="btn btn-outline-light" id="qa">Q&A</button></a>
+                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" id="content">
+                    Chatbot
+                </button>
+                <a href="/qa_cpu"><button type="button" class="btn btn-outline-light " id="choice_CPU">CPU Q&A</button></a>
+          <a href="/qa_gpu"><button type="button" class="btn btn-outline-light " id="choice_GPU">GPU Q&A</button></a>
+          <a href="/qa_ram"><button type="button" class="btn btn-outline-light active" id="choice_RAM">RAM Q&A</button></a>
+          <a href="/qa_mb"><button type="button" class="btn btn-outline-light" id="choice_MB">MB Q&A</button></a>
+          <a href="/qa_disk"><button type="button" class="btn btn-outline-light" id="choice_DISK">DISK Q&A</button></a>
+              </div>
+         <!--Q2-->
+         <div class="question_table">
+           Q2：如何查看記憶體規格？
+         </div>
+         <div class="answer_table">
+           A：品名範例：美光 DDR4-2400 8GB。美光為廠排、DDR4為記憶體規格、2400為頻率，數字越大效能越好，8G則是容量，與效能沒有直接關聯，但若容量不足電腦將會非常緩慢。
+         </div>
+      </div>
+      <div class="swiper-slide sw03">
+        <!-- 上方功能列 -->
+        <img src="./images/card.jpg" id="home_card">
+        <div class="home">
+                <a href="/index"><button type="button" class="btn btn-outline-light" id="build">組電腦</button></a>
+                <a href="/cpu_rank"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
+                <a href="/qa"><button type="button" class="btn btn-outline-light" id="qa">Q&A</button></a>
+                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" id="content">
+                    Chatbot
+                </button>
+                <a href="/qa_cpu"><button type="button" class="btn btn-outline-light " id="choice_CPU">CPU Q&A</button></a>
+          <a href="/qa_gpu"><button type="button" class="btn btn-outline-light " id="choice_GPU">GPU Q&A</button></a>
+          <a href="/qa_ram"><button type="button" class="btn btn-outline-light active" id="choice_RAM">RAM Q&A</button></a>
+          <a href="/qa_mb"><button type="button" class="btn btn-outline-light" id="choice_MB">MB Q&A</button></a>
+          <a href="/qa_disk"><button type="button" class="btn btn-outline-light" id="choice_DISK">DISK Q&A</button></a>
+              </div>
+        <!--Q3-->
+        <div class="question_table">
+          Q3：記憶體單通道和雙通道的差別？
+        </div>
+        <div class="answer_table">
+          A：雙通道的頻寬是單通道的兩倍，一般而言同品牌的同一隻記憶體插兩隻就是雙通道。而在店內看到的雙通道記憶體為店員幫你測試過確定能跑雙通道，兩隻包在一起賣，通常會賣比較貴。體感來說單雙通道的感覺差異並不大，但如果是內顯用戶務必要用雙通道才能發揮較好的效能。
+        </div>
+      </div>
+      <div class="swiper-slide sw04">
+        <!-- 上方功能列 -->
+        <img src="./images/card.jpg" id="home_card">
+        <div class="home">
+                <a href="/index"><button type="button" class="btn btn-outline-light" id="build">組電腦</button></a>
+                <a href="/cpu_rank"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
+                <a href="/qa"><button type="button" class="btn btn-outline-light" id="qa">Q&A</button></a>
+                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" id="content">
+                    Chatbot
+                </button>
+                <a href="/qa_cpu"><button type="button" class="btn btn-outline-light " id="choice_CPU">CPU Q&A</button></a>
+          <a href="/qa_gpu"><button type="button" class="btn btn-outline-light " id="choice_GPU">GPU Q&A</button></a>
+          <a href="/qa_ram"><button type="button" class="btn btn-outline-light active" id="choice_RAM">RAM Q&A</button></a>
+          <a href="/qa_mb"><button type="button" class="btn btn-outline-light" id="choice_MB">MB Q&A</button></a>
+          <a href="/qa_disk"><button type="button" class="btn btn-outline-light" id="choice_DISK">DISK Q&A</button></a>
+              </div>
+        <!--Q4-->
+        <div class="question_table">
+          Q4：記憶體容量該如何選擇？
+        </div>
+        <div class="answer_table">
+          A：文書用通常建議容量是8GB，遊戲機則是16GB，有特殊用途如多開模擬器或是3D繪圖容量可提升至32GB或64GB較方便。
+        </div>
+      </div>
+      <div class="swiper-slide sw05">
+        <!-- 上方功能列 -->
+        <img src="./images/card.jpg" id="home_card">
+        <div class="home">
+                <a href="/index"><button type="button" class="btn btn-outline-light" id="build">組電腦</button></a>
+                <a href="/cpu_rank"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
+                <a href="/qa"><button type="button" class="btn btn-outline-light" id="qa">Q&A</button></a>
+                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" id="content">
+                    Chatbot
+                </button>
+                <a href="/qa_cpu"><button type="button" class="btn btn-outline-light " id="choice_CPU">CPU Q&A</button></a>
+          <a href="/qa_gpu"><button type="button" class="btn btn-outline-light " id="choice_GPU">GPU Q&A</button></a>
+          <a href="/qa_ram"><button type="button" class="btn btn-outline-light active" id="choice_RAM">RAM Q&A</button></a>
+          <a href="/qa_mb"><button type="button" class="btn btn-outline-light" id="choice_MB">MB Q&A</button></a>
+          <a href="/qa_disk"><button type="button" class="btn btn-outline-light" id="choice_DISK">DISK Q&A</button></a>
+              </div>
+        <!--Q5-->
+        <div class="question_table">
+          Q5：記憶體頻率該如何選擇？
+        </div>
+        <div class="answer_table">
+          A：追求效能的人可以選擇頻率為3000和3200的高速記憶體，對於遊戲畫面的表現會有相當的影響。
+        </div>
+      </div>
+      <div class="swiper-slide sw06">
+        <!-- 上方功能列 -->
+        <img src="./images/card.jpg" id="home_card">
+        <div class="home">
+                <a href="/index"><button type="button" class="btn btn-outline-light" id="build">組電腦</button></a>
+                <a href="/cpu_rank"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
+                <a href="/qa"><button type="button" class="btn btn-outline-light" id="qa">Q&A</button></a>
+                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" id="content">
+                    Chatbot
+                </button>
+                <a href="/qa_cpu"><button type="button" class="btn btn-outline-light " id="choice_CPU">CPU Q&A</button></a>
+          <a href="/qa_gpu"><button type="button" class="btn btn-outline-light " id="choice_GPU">GPU Q&A</button></a>
+          <a href="/qa_ram"><button type="button" class="btn btn-outline-light active" id="choice_RAM">RAM Q&A</button></a>
+          <a href="/qa_mb"><button type="button" class="btn btn-outline-light" id="choice_MB">MB Q&A</button></a>
+          <a href="/qa_disk"><button type="button" class="btn btn-outline-light" id="choice_DISK">DISK Q&A</button></a>
+              </div>
+        <!--Q6-->
+        <div class="question_table">
+          Q6：推薦的記憶體品牌？
+        </div>
+        <div class="shortanswer_table">
+          A：金士頓、威剛、美光、芝奇等等……
+        </div>
+      </div>
+      
+      </div>
+      
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    
+    <!-- Add Scrollbar -->
+    <div class="swiper-scrollbar"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="../js/swiper.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    
+    var swiper = new Swiper('.swiper-container', {
+      keyboard: {
+        enabled: true,
+      },
+      scrollbar: {
+        el: '.swiper-scrollbar',
+        hide: true,
+      },
+    });
+  </script>
+</body>
+
+</html>

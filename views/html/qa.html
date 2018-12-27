@@ -3,61 +3,61 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Bootstrap core CSS -->
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
-    <link href="./css/qa_style.css" rel="stylesheet">
-    <title>CPU排名</title>
-    <!-- BootStraps JS-->
-    <script src="./js/jquery-3.3.1.min.js"></script>
-    <script>window.jQuery</script>
-    <script src="./js/popper.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- Bootstrap core CSS -->
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link href="./css/qa_style.css" rel="stylesheet">
+  <title>Q&A</title>
+  <!-- BootStraps JS-->
+  <script src="./js/jquery-3.3.1.min.js"></script>
+  <script>window.jQuery</script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
 </head>
 
 <body>
-        <div class="title">
-                <img src="./images/card.jpg" id="home_card">
-                <div class="home">
-            
-                  <a href="./qa_cpu.html"><button type="button" class="btn btn-outline-light" id="choice_CPU">CPU Q&A</button></a>
-                  <a href="./qa_gpu.html"><button type="button" class="btn btn-outline-light" id="choice_GPU">GPU Q&A</button></a>
-                  <a href="./qa_ram.html"><button type="button" class="btn btn-outline-light" id="choice_RAM">RAM Q&A</button></a>
-                  <a href="./qa_mb.html"><button type="button" class="btn btn-outline-light" id="choice_MB">MB Q&A</button></a>
-                  <a href="./qa_disk.html"><button type="button" class="btn btn-outline-light" id="choice_DISK">DISK Q&A</button></a>
-                  <a href="./index.html"><button type="button" class="btn btn-outline-light" id="build">組電腦</button></a>
-                  <a href="./cpu_rank.html"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
-                  <a href="./qa.html"><button type="button" class="btn btn-outline-light" id="qa">Q&A</button></a>
-            
-                  <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" id="content">
-                    Chatbot
-                  </button>
-                  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLongTitle">Chatbot</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <iframe allow="microphone;" width="100%" height="500" src="https://console.dialogflow.com/api-client/demo/embedded/d43607d5-d943-4736-9e0e-8f23ea18557d">
-                          </iframe>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+  <div class="title">
+    <img src="./images/card.jpg" id="home_card">
+    <div class="home">
+
+      <a href="/qa_cpu"><button type="button" class="btn btn-outline-light" id="choice_CPU">CPU Q&A</button></a>
+      <a href="/qa_gpu"><button type="button" class="btn btn-outline-light" id="choice_GPU">GPU Q&A</button></a>
+      <a href="/qa_ram"><button type="button" class="btn btn-outline-light" id="choice_RAM">RAM Q&A</button></a>
+      <a href="/qa_mb"><button type="button" class="btn btn-outline-light" id="choice_MB">MB Q&A</button></a>
+      <a href="/qa_disk"><button type="button" class="btn btn-outline-light" id="choice_DISK">DISK Q&A</button></a>
+      <a href="/index"><button type="button" class="btn btn-outline-light" id="build">組電腦</button></a>
+      <a href="/cpu_rank"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
+      <a href="/qa"><button type="button" class="btn btn-outline-light" id="qa">Q&A</button></a>
+
+      <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" id="content">
+        Chatbot
+      </button>
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Chatbot</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <iframe allow="microphone;" width="100%" height="500" src="https://console.dialogflow.com/api-client/demo/embedded/d43607d5-d943-4736-9e0e-8f23ea18557d">
+              </iframe>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

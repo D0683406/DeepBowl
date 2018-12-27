@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- Bootstrap core CSS -->
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link href="./css/gpurank_style.css" rel="stylesheet">
+
+  <title>GPU排名</title>
+  <!-- BootStraps JS-->
+  <script src="./js/jquery-3.3.1.min.js"></script>
+  <script>window.jQuery</script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <!-- Page Content -->
+  <div class="title">
+    <img src="./images/card.jpg" id="home_card">
+    <div class="home">
+
+      <a href="/cpu_rank"><button type="button" class="btn btn-outline-light " id="choice_CPU">CPU排名</button></a>
+      <a href="/gpu_rank"><button type="button" class="btn btn-outline-light active" id="choice_GPU">GPU排名</button></a>
+      <a href="/index"><button type="button" class="btn btn-outline-light" id="build">組電腦</button></a>
+      <a href="/cpu_rank"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
+      <a href="/qa"><button type="button" class="btn btn-outline-light" id="qa">Q&A</button></a>
+
+      <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" id="content">
+        Chatbot
+      </button>
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Chatbot</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <iframe allow="microphone;" width="100%" height="500" src="https://console.dialogflow.com/api-client/demo/embedded/d43607d5-d943-4736-9e0e-8f23ea18557d">
+              </iframe>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rankgg">
+    <div class="container" name="rankk" id="rankk">
+      <div class="row">
+        <div class="col-lg-12 ">
+          </br>
+
+          <h1 class="mt-5 text-center" style="color:white">GPU排名</h1>
+
+          </br>
+          </br>
+          </br>
+
+          <!-- 1 -->
+          <button type="button" class="list-group-item list-group-item-action">
+            <div class="row ">
+              <div class="srank">
+                <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">1</a>
+              </div>
+              <div class="cpu_images">
+                <img src="images/gpu_images/RTX 2080 Ti.png" style="height: 98%;">
+              </div>
+              <div class="rank_information">
+                <p>RTX 2080 Ti - 11G</p>
+                <p>售價 37670</p>
+              </div>
+              <div class="rank_bar">
+                <div class="progress" style="height: 90%;">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
+                    aria-valuemin="50" aria-valuemax="100" style="width:100%">193</div>
+                </div>
+              </div>
+            </div>
+          </button>
+
+          <!-- 2 -->
+          <button type="button" class="list-group-item list-group-item-action">
+            <div class="row ">
+              <div class="srank">
+                <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">2</a>
+              </div>
+              <div class="cpu_images">
+                <img src="images/gpu_images/GTX 1080 Ti.png" style="height: 98%;">
+              </div>
+              <div class="rank_information">
+                <p>GTX 1080 Ti - 11G</p>
+                <p>售價 33490</p>
+              </div>
+              <div class="rank_bar">
+                <div class="progress" style="height: 90%;">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
+                    aria-valuemin="50" aria-valuemax="77.7202" style="width:77.7202%">150</div>
+                </div>
+              </div>
+            </div>
+          </button>
+
+          <!-- 3 -->
+          <button type="button" class="list-group-item list-group-item-action">
+            <div class="row ">
+              <div class="srank">
+                <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">3</a>
+              </div>
+              <div class="cpu_images">
+                <img src="images/gpu_images/RTX 2080.png" style="height: 98%;">
+              </div>
+              <div class="rank_information">
+                <p>RTX 2080 - 8G</p>
+                <p>售價 27490</p>
+              </div>
+              <div class="rank_bar">
+                <div class="progress" style="height: 90%;">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
+                    aria-valuemin="50" aria-valuemax="77.2021" style="width:77.2021%">149</div>
+                </div>
+              </div>
+            </div>
+          </button>
+
+          <!-- 4 -->
+          <button type="button" class="list-group-item list-group-item-action">
+            <div class="row ">
+              <div class="srank">
+                <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">4</a>
+              </div>
+              <div class="cpu_images">
+                <img src="images/gpu_images/RTX 2070.png" style="height: 98%;">
+              </div>
+              <div class="rank_information">
+                <p>RTX 2070 - 8G</p>
+                <p>售價 16990</p>
+              </div>
+              <div class="rank_bar">
+                <div class="progress" style="height: 90%;">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
+                    aria-valuemin="50" aria-valuemax="69.4301" style="width:69.4301%">134</div>
+                </div>
+              </div>
+            </div>
+          </button>
+
+          <!-- 5 -->
+          <button type="button" class="list-group-item list-group-item-action">
+            <div class="row ">
+              <div class="srank">
+                <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">5</a>
+              </div>
+              <div class="cpu_images">
+                <img src="images/gpu_images/GTX 1070 Ti.png" style="height: 98%;">
+              </div>
+              <div class="rank_information">
+                <p>GTX 1070 Ti - 8G</p>
+                <p>售價 13890</p>
+              </div>
+              <div class="rank_bar">
+                <div class="progress" style="height: 90%;">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
+                    aria-valuemin="50" aria-valuemax="60.1036" style="width:60.1036%">116</div>
+                </div>
+              </div>
+            </div>
+          </button>
+          <!-- 6 -->
+          <button type="button" class="list-group-item list-group-item-action">
+            <div class="row ">
+              <div class="srank">
+                <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">6</a>
+              </div>
+              <div class="cpu_images">
+                <img src="images/gpu_images/GTX 1070.png" style="height: 98%;">
+              </div>
+              <div class="rank_information">
+                <p>GTX 1070 - 8G</p>
+                <p>售價 10790</p>
+              </div>
+              <div class="rank_bar">
+                <div class="progress" style="height: 90%;">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
+                    aria-valuemin="50" aria-valuemax="50.7772" style="width:50.7772%">98</div>
+                </div>
+              </div>
+            </div>
+          </button>
+          <!-- 7 -->
+          <button type="button" class="list-group-item list-group-item-action">
+            <div class="row ">
+              <div class="srank">
+                <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">7</a>
+              </div>
+              <div class="cpu_images">
+                <img src="images/gpu_images/RX 590.png" style="height: 98%;">
+              </div>
+              <div class="rank_information">
+                <p>RX 590 - 8G</p>
+                <p>售價 8990</p>
+              </div>
+              <div class="rank_bar">
+                <div class="progress" style="height: 90%;">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
+                    aria-valuemin="50" aria-valuemax="40.9326" style="width:40.9326%">79</div>
+                </div>
+              </div>
+            </div>
+          </button>
+          <!-- 8 -->
+          <button type="button" class="list-group-item list-group-item-action">
+            <div class="row ">
+              <div class="srank">
+                <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">8</a>
+              </div>
+              <div class="cpu_images">
+                <img src="images/gpu_images/GTX 1060.png" style="height: 98%;">
+              </div>
+              <div class="rank_information">
+                <p>GTX 1060 - 6G</p>
+                <p>售價 6190</p>
+              </div>
+              <div class="rank_bar">
+                <div class="progress" style="height: 90%;">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
+                    aria-valuemin="50" aria-valuemax="36.7358" style="width:36.7358%">70.9</div>
+                </div>
+              </div>
+            </div>
+          </button>
+          <!-- 9 -->
+          <button type="button" class="list-group-item list-group-item-action">
+            <div class="row ">
+              <div class="srank">
+                <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">9</a>
+              </div>
+              <div class="cpu_images">
+                <img src="images/gpu_images/RX 580.png" style="height: 98%;">
+              </div>
+              <div class="rank_information">
+                <p>RX 580 - 4G/8G</p>
+                <p>售價 4990/5390</p>
+              </div>
+              <div class="rank_bar">
+                <div class="progress" style="height: 90%;">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
+                    aria-valuemin="50" aria-valuemax="36.2694" style="width:36.2694%">70</div>
+                </div>
+              </div>
+            </div>
+          </button>
+          <!-- 10 -->
+          <button type="button" class="list-group-item list-group-item-action">
+              <div class="row ">
+                <div class="srank">
+                  <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">10</a>
+                </div>
+                <div class="cpu_images">
+                  <img src="images/gpu_images/GTX 1060.png" style="height: 98%;">
+                </div>
+                <div class="rank_information">
+                  <p>GTX 1060 - 3G/6G</p>
+                  <p>售價 5490/6990</p>
+                </div>
+                <div class="rank_bar">
+                  <div class="progress" style="height: 90%;">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
+                      aria-valuemin="50" aria-valuemax="34.4041" style="width:34.4041%">66.4</div>
+                  </div>
+                </div>
+              </div>
+            </button>
+          <!-- 11 -->
+          <button type="button" class="list-group-item list-group-item-action">
+            <div class="row ">
+              <div class="srank">
+                <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">11</a>
+              </div>
+              <div class="cpu_images">
+                <img src="images/gpu_images/RX 570.png" style="height: 98%;">
+              </div>
+              <div class="rank_information">
+                <p>RX 570 - 4G/8G</p>
+                <p>售價 370/4990</p>
+              </div>
+              <div class="rank_bar">
+                <div class="progress" style="height: 90%;">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
+                    aria-valuemin="50" aria-valuemax="31.7098" style="width:31.7098%">61.2</div>
+                </div>
+              </div>
+            </div>
+          </button>
+          <!-- 12 -->
+          <button type="button" class="list-group-item list-group-item-action">
+            <div class="row ">
+              <div class="srank">
+                <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">12</a>
+              </div>
+              <div class="cpu_images">
+                <img src="images/gpu_images/GTX 1050 Ti.png" style="height: 98%;">
+              </div>
+              <div class="rank_information">
+                <p>GTX 1050 Ti - 4G</p>
+                <p>售價 4590</p>
+              </div>
+              <div class="rank_bar">
+                <div class="progress" style="height: 90%;">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
+                    aria-valuemin="50" aria-valuemax="19.8446" style="width:19.8446%">38.3</div>
+                </div>
+              </div>
+            </div>
+          </button>
+          <!-- 13 -->
+          <button type="button" class="list-group-item list-group-item-action">
+            <div class="row ">
+              <div class="srank">
+                <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">13</a>
+              </div>
+              <div class="cpu_images">
+                <img src="images/gpu_images/GTX 1050.png" style="height: 98%;">
+              </div>
+              <div class="rank_information">
+                <p>GTX 1050 - 2G/3G</p>
+                <p>售價 3990/4390</p>
+              </div>
+              <div class="rank_bar">
+                <div class="progress" style="height: 90%;">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
+                    aria-valuemin="50" aria-valuemax="17.5648" style="width:17.5648%">33.9</div>
+                </div>
+              </div>
+            </div>
+          </button>
+          <!-- 14 -->
+          <button type="button" class="list-group-item list-group-item-action">
+            <div class="row ">
+              <div class="srank">
+                <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">14</a>
+              </div>
+              <div class="cpu_images">
+                <img src="images/gpu_images/RX 560.png" style="height: 98%;">
+              </div>
+              <div class="rank_information">
+                <p>RX 560 - 2G/4G</p>
+                <p>售價 3790/4790</p>
+              </div>
+              <div class="rank_bar">
+                <div class="progress" style="height: 90%;">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
+                    aria-valuemin="50" aria-valuemax="16.0622" style="width:16.0622%">31</div>
+                </div>
+              </div>
+            </div>
+          </button>
+          <!-- 15 -->
+          <button type="button" class="list-group-item list-group-item-action">
+            <div class="row ">
+              <div class="srank">
+                <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">15</a>
+              </div>
+              <div class="cpu_images">
+                <img src="images/gpu_images/RX 550.png" style="height: 98%;">
+              </div>
+              <div class="rank_information">
+                <p>RX 550 - 2G/4G</p>
+                <p>售價 2890/3250</p>
+              </div>
+              <div class="rank_bar">
+                <div class="progress" style="height: 90%;">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
+                    aria-valuemin="50" aria-valuemax="10.829" style="width:10.829%">20.9</div>
+                </div>
+              </div>
+            </div>
+          </button>
+          <!-- 16 -->
+          <button type="button" class="list-group-item list-group-item-action">
+            <div class="row ">
+              <div class="srank">
+                <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">16</a>
+              </div>
+              <div class="cpu_images">
+                <img src="images/gpu_images/GT 1030.png" style="height: 98%;">
+              </div>
+              <div class="rank_information">
+                <p>GT 1030 - 2G</p>
+                <p>售價 2590</p>
+              </div>
+              <div class="rank_bar">
+                <div class="progress" style="height: 90%;">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
+                    aria-valuemin="50" aria-valuemax="9.48186" style="width:9.48186%">18.3</div>
+                </div>
+              </div>
+            </div>
+          </button>
+          <!-- 17 -->
+          <button type="button" class="list-group-item list-group-item-action">
+            <div class="row ">
+              <div class="srank">
+                <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">17</a>
+              </div>
+              <div class="cpu_images">
+                <img src="images/gpu_images/GT 730.png" style="height: 98%;">
+              </div>
+              <div class="rank_information">
+                <p>GT 730 - 2G</p>
+                <p>售價 1990</p>
+              </div>
+              <div class="rank_bar">
+                <div class="progress" style="height: 90%;">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
+                    aria-valuemin="50" aria-valuemax="3.21762" style="width:3.21762%">6.21</div>
+                </div>
+              </div>
+            </div>
+          </button>
+          <!-- 18 -->
+          <button type="button" class="list-group-item list-group-item-action">
+            <div class="row ">
+              <div class="srank">
+                <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">18</a>
+              </div>
+              <div class="cpu_images">
+                <img src="images/gpu_images/GT 710.png" style="height: 98%;">
+              </div>
+              <div class="rank_information">
+                <p>GT 710 - 1G/2G</p>
+                <p>售價 950/1390</p>
+              </div>
+              <div class="rank_bar">
+                <div class="progress" style="height: 90%;">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
+                    aria-valuemin="50" aria-valuemax="2.35751" style="width:2.35751%">4.55</div>
+                </div>
+              </div>
+            </div>
+          </button>
+          <!-- 19 -->
+          <button type="button" class="list-group-item list-group-item-action">
+            <div class="row ">
+              <div class="srank">
+                <a href="#" class="btn btn-outline-info btn-lg disabled" role="button" aria-disabled="true">19</a>
+              </div>
+              <div class="cpu_images">
+                <img src="images/gpu_images/GT 210.png" style="height: 98%;">
+              </div>
+              <div class="rank_information">
+                <p>GT 210 - 1G</p>
+                <p>售價 1090</p>
+              </div>
+              <div class="rank_bar">
+                <div class="progress" style="height: 90%;">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
+                    aria-valuemin="50" aria-valuemax="0.647668" style="width:0.647668%">1.25</div>
+                </div>
+              </div>
+            </div>
+          </button>
+        </br>
+      </br>
+    </br>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
