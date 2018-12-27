@@ -1,9 +1,10 @@
 body {
     font-family: "微軟正黑體", "Microsoft JhengHei", monospace;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-position: center;
     background-size: cover;
+    background-image: url(../images/background3.jpg);
+    background-position:0 -19.7%;
 }
 
 .srank {
@@ -41,15 +42,14 @@ body {
     height: 5%;
 }
 
-.rankgg {
-    background-color: black;
-}
+
 
 .container {
     position: absolute;
     top: 100%;
     left: 20%;
 }
+
 
 .title {
     position: absolute;
