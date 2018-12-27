@@ -44,7 +44,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-//使用下面的js檔
+//使用下面的js檔與檔案
 app.use(express.static(__dirname + '/images'));
 app.use(express.static(__dirname + '/views'));
 app.use('/', routes);
