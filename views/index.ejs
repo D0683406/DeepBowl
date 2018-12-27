@@ -8,11 +8,13 @@
   <link rel="stylesheet" href="./css/swiper.min.css">
   <link href="./css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
-  <!-- BootStraps JS-->
-  <script src="./js/jquery-3.3.1.min.js"></script>
+    <!-- BootStraps JS-->
+  <script src="js/jquery-3.3.1.min.js"></script>
   <script>window.jQuery</script>
-  <script src="./js/popper.min.js"></script>
-  <script src="./js/bootstrap.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <!-- Swiper JS -->
+  <script src="js/swiper.min.js"></script>
   <!-- Demo styles -->
   <style>
   </style>
@@ -64,36 +66,35 @@
           </div>
 
           <div class="cpu_select">
-            <div class="dropdown">
-              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                選擇你的CPU
-              </a>
+          <div class="input-group-btn">
+          <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+          </button>
+          <ul id="cpulist" class="dropdown-menu">
+            <li><a href="#dasd">A</a></li>
+            <li><a href="#sadsa">B</a></li>
+            <li><a href="#dasd">C</a></li>
+          </ul>
+        </div>
 
-              <div class="dropdown-menu" aria-labelledby="ccccc">
-                <a class="dropdown-item" href="#">Ryzen TR2 2990WX</a>
-                <a class="dropdown-item" href="#">Ryzen TR2 2970WX</a>
-                <a class="dropdown-item" href="#">Ryzen TR2 2950X</a>
-              </div>
-            </div>
           </div>
           <button type="button" class="btn btn-outline-dark" id="cpucheck">添加到我的選擇</button>
 
           <div class="CPU_box">
             <div class="CPU_information">
               <ul class="list-group cpu_title">
-                <li class="list-group-item">廠牌</li>
-                <li class="list-group-item">型號</li>
-                <li class="list-group-item">Benchmark</li>
-                <li class="list-group-item">耗電</li>
-                <li class="list-group-item">售價</li>
+                <li class="list-group-item" style="height:50px">廠牌</li>
+                <li class="list-group-item" style="height:50px">型號</li>
+                <li class="list-group-item" style="height:50px">Benchmark</li>
+                <li class="list-group-item" style="height:50px">耗電</li>
+                <li class="list-group-item" style="height:50px">售價</li>
               </ul>
               <ul class="list-group cpu_group">
-                <li class="list-group-item"><%= cpu_data[0].brand %></li>
-                <li class="list-group-item">Ryzen TR2 2990WX</li>
-                <li class="list-group-item">132</li>
-                <li class="list-group-item">250W</li>
-                <li class="list-group-item">57999</li>
+                <li class="list-group-item" style="height:50px" id="cpubrand" >Null</li>
+                <li class="list-group-item" style="height:50px" id="cpumodel" >Null</li>
+                <li class="list-group-item" style="height:50px" id="cpubenchmark" >Null</li>
+                <li class="list-group-item" style="height:50px" id="cputdp" >Null</li>
+                <li class="list-group-item" style="height:50px" id="cpuprice" >Null</li>
               </ul>
             </div>
           </div>
@@ -387,16 +388,16 @@
     <div class="swiper-button-prev"></div>
   </div>
   </div>
-  <!-- BootStraps JS-->
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script>window.jQuery</script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <!-- Swiper JS -->
-  <script src="js/swiper.min.js"></script>
 
+
+  <script>
+    $('#cpulist li a').on('click', function () {
+      document.getElementById("cpubrand").innerHTML=$(this).text();
+    });
+  </script>
   <!-- Initialize Swiper -->
   <script>
+
     var swiper = new Swiper('.swiper-container', {
       slidesPerView: 1,
       spaceBetween: 30,
