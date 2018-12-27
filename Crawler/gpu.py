@@ -19,6 +19,7 @@ video_interface_list=[]
 power_interface_list=[]
 length_list=[]
 warranty_list = []
+memory_list =[]
 price_list=[]
 fullname=[]
 for i in gpu_all[27:-12]:
@@ -32,6 +33,9 @@ for i in gpu_all[27:-12]:
         gpu_all.remove(i)
 for i in gpu_all[27:-12]:
     temp=i.find_all("p")
+    XD=re.search("\d{1,2}G",temp[0].string).group(0)
+    print(XD)
+    memory_list.append(XD)
     temp2=i.find_all("div")
     fullname.append(temp[0].string)
     #temp2[n].string n=0.core 1.clock 2.cuda|sp 3.video_interface 4.power_interface 5.length 6.warranty 8.price
@@ -63,12 +67,8 @@ for i in gpu_all[27:-12]:
     price=re.search("(含稅價：NT)(\d*)(.*)",temp[1].get_text()).group(2)
     price_list.append(price)
 
-    table=pd.DataFrame({"brand":brand_list,"core":core_list,"clock(MHz)":clock_list,"cuda_sp":cuda_sp_list,"video_interface":video_interface_list,"power_interface":power_interface_list,"legth(cm)":length_list,"warranty(years)":warranty_list,"price":price_list,"rank":"null","benchmark":"null"})
-    table.to_csv('./DATA/gpu_list.csv', encoding='utf_8_sig')
-    
-    
-
-
+    table=pd.DataFrame({"brand":brand_list,"core":core_list,"memory":memory_list,"clock(MHz)":clock_list,"cuda_sp":cuda_sp_list,"video_interface":video_interface_list,"power_interface":power_interface_list,"legth(cm)":length_list,"warranty(years)":warranty_list,"price":price_list,"rank":"null","benchmark":"null"})
+    table.to_csv('.gpu_list2.csv', encoding='utf_8_sig')
 
 #%%
 

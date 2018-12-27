@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="./css/swiper.min.css">
   <link href="./css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
-    <!-- BootStraps JS-->
+  <!-- BootStraps JS-->
   <script src="js/jquery-3.3.1.min.js"></script>
   <script>window.jQuery</script>
   <script src="js/popper.min.js"></script>
@@ -21,27 +21,35 @@
 </head>
 
 <body>
+  <!-- hidden-->
+  <input type="hidden" id="globalcpu">
+  <input type="hidden" id="globalgpu">
+  <input type="hidden" id="globalram">
+  <input type="hidden" id="globalssd">
+  <input type="hidden" id="globalhdd">
+  <!-- hidden-->
+
   <!-- chatbot -->
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Chatbot</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <iframe allow="microphone;" width="100%" height="500" src="https://console.dialogflow.com/api-client/demo/embedded/d43607d5-d943-4736-9e0e-8f23ea18557d">
-              </iframe>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-            </div>
-          </div>
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Chatbot</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <div class="modal-body">
+          <iframe allow="microphone;" width="100%" height="500" src="https://console.dialogflow.com/api-client/demo/embedded/d43607d5-d943-4736-9e0e-8f23ea18557d">
+          </iframe>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+        </div>
+      </div>
+    </div>
   </div>
   <!-- Swiper -->
   <div class="swiper-container">
@@ -54,7 +62,7 @@
           <a href="/cpu_rank"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
           <a href="/qa"><button type="button" class="btn btn-outline-light" id="qa">Q&A</button></a>
           <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" id="content">
-              Chatbot
+            Chatbot
           </button>
         </div>
 
@@ -62,20 +70,24 @@
       <div class="swiper-slide sw02">
         <div class="CPU_PAGE rounded">
           <div class="CPU_image">
-            <img src="images/cpu_images/Ryzen TR2 2990WX.png">
+            <img id="cpuimg" src="images/cpu_images/Ryzen TR2 2990WX.png">
           </div>
 
           <div class="cpu_select">
-          <div class="input-group-btn">
-          <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-            <span class="caret"></span>
-          </button>
-          <ul id="cpulist" class="dropdown-menu">
-            <li><a href="#dasd">A</a></li>
-            <li><a href="#sadsa">B</a></li>
-            <li><a href="#dasd">C</a></li>
-          </ul>
-        </div>
+            <div class="input-group-btn dropright">
+              <button type="button btn-secondary" class="btn dropdown-toggle" data-toggle="dropdown">
+                請選擇CPU
+                <span class="caret"></span>
+              </button>
+              <ul id="cpulist" class="dropdown-menu scrollbar1" style="height:200px;overflow:scroll">
+                <% for ( var i =0 ; i< cpu_data.length ; i++ ) { %>
+                <li><a>
+                    <%= cpu_data[i].model %>
+                  </a></li>
+                <% } %>
+
+              </ul>
+            </div>
 
           </div>
           <button type="button" class="btn btn-outline-dark" id="cpucheck">添加到我的選擇</button>
@@ -90,11 +102,11 @@
                 <li class="list-group-item" style="height:50px">售價</li>
               </ul>
               <ul class="list-group cpu_group">
-                <li class="list-group-item" style="height:50px" id="cpubrand" >Null</li>
-                <li class="list-group-item" style="height:50px" id="cpumodel" >Null</li>
-                <li class="list-group-item" style="height:50px" id="cpubenchmark" >Null</li>
-                <li class="list-group-item" style="height:50px" id="cputdp" >Null</li>
-                <li class="list-group-item" style="height:50px" id="cpuprice" >Null</li>
+                <li class="list-group-item" style="height:50px" id="cpubrand"></li>
+                <li class="list-group-item" style="height:50px" id="cpumodel"></li>
+                <li class="list-group-item" style="height:50px" id="cpubenchmark"></li>
+                <li class="list-group-item" style="height:50px" id="cputdp"></li>
+                <li class="list-group-item" style="height:50px" id="cpuprice"></li>
               </ul>
             </div>
           </div>
@@ -112,21 +124,23 @@
       <div class="swiper-slide sw03">
         <div class="GPU_PAGE rounded">
           <div class="GPU_image">
-            <img src="images/gpu_images/GTX 1070.png" style="height:100%">
+            <img id="gpuimg" src="images/gpu_images/GTX 1070.png" style="height:100%">
           </div>
 
           <div class="gpu_select">
-            <div class="dropdown">
-              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                選擇你的GPU
-              </a>
+            <div class="input-group-btn dropright">
+              <button type="button btn-secondary dropdown-toggle" class="btn dropdown-toggle" data-toggle="dropdown">
+                請選擇GPU
+                <span class="caret"></span>
+              </button>
+              <ul id="gpulist" class="dropdown-menu scrollbar1" style="height:200px;overflow:scroll">
+                <% for ( var i =0 ; i< gpu_data.length ; i++ ) { %>
+                <li><a>
+                <%= gpu_data[i].brand+" "+gpu_data[i].core+" "+gpu_data[i].memory %>
+                  </a></li>
+                <% } %>
 
-              <div class="dropdown-menu" aria-labelledby="ccccc">
-                <a class="dropdown-item" href="#">Ryzen TR2 2990WX</a>
-                <a class="dropdown-item" href="#">Ryzen TR2 2970WX</a>
-                <a class="dropdown-item" href="#">Ryzen TR2 2950X</a>
-              </div>
+               </ul>
             </div>
           </div>
           <button type="button" class="btn btn-outline-dark" id="gpu_check">添加到我的選擇</button>
@@ -134,20 +148,22 @@
           <div class="GPU_box">
             <div class="GPU_information">
               <ul class="list-group gpu_title">
-                <li class="list-group-item">廠牌</li>
-                <li class="list-group-item">型號</li>
-                <li class="list-group-item">Benchmark</li>
-                <li class="list-group-item">耗電</li>
-                <li class="list-group-item">保固(年)</li>
-                <li class="list-group-item">售價</li>
+                <li class="list-group-item" style="height:50px">廠牌</li>
+                <li class="list-group-item" style="height:50px">型號</li>
+                <li class="list-group-item" style="height:50px">顯存</li>
+                <li class="list-group-item" style="height:50px">Benchmark</li>
+                <li class="list-group-item" style="height:50px">耗電</li>
+                <li class="list-group-item" style="height:50px">保固(年)</li>
+                <li class="list-group-item" style="height:50px">售價</li>
               </ul>
               <ul class="list-group gpu_group">
-                <li class="list-group-item">GIGABYTE</li>
-                <li class="list-group-item">GTX1070</li>
-                <li class="list-group-item">98</li>
-                <li class="list-group-item">150W</li>
-                <li class="list-group-item">4</li>
-                <li class="list-group-item">13900</li>
+                <li class="list-group-item" style="height:50px" id="gpubrand" ></li>
+                <li class="list-group-item" style="height:50px" id="gpucore"></li>
+                <li class="list-group-item" style="height:50px" id="gpumemory"></li>
+                <li class="list-group-item" style="height:50px" id="gpubenchmark"></li>
+                <li class="list-group-item" style="height:50px" id="gputdp"></li>
+                <li class="list-group-item" style="height:50px" id="gpuwarranty"></li>
+                <li class="list-group-item" style="height:50px" id="gpuprice"></li>
               </ul>
             </div>
           </div>
@@ -162,47 +178,52 @@
           <button type="button" class="btn btn-secondary butt" id="LIST1">LIST</button>
         </div>
       </div>
+
       <div class="swiper-slide sw04">
         <div class="SSD_PAGE rounded">
-
+        <div class="GPU_image">
+          <img id="ssdimg" src="images/ssd.png" style="height:100%">
+        </div>
 
           <div class="ssd_select">
-            <div class="dropdown">
-              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                選擇你的SSD
-              </a>
+          <div class="input-group-btn dropright">
+          <button type="button btn-secondary dropdown-toggle" class="btn dropdown-toggle" data-toggle="dropdown">
+            請選擇SSD
+            <span class="caret"></span>
+          </button>
+          <ul id="ssdlist" class="dropdown-menu scrollbar1" style="height:200px;overflow:scroll">
+            <% for ( var i =0 ; i< ssd_data.length ; i++ ) { %>
+            <li><a>
+            <%= ssd_data[i].brand+" "+ssd_data[i].model+" "+ssd_data[i].size %>
+              </a></li>
+            <% } %>
 
-              <div class="dropdown-menu" aria-labelledby="ccccc">
-                <a class="dropdown-item" href="#">Ryzen TR2 2990WX</a>
-                <a class="dropdown-item" href="#">Ryzen TR2 2970WX</a>
-                <a class="dropdown-item" href="#">Ryzen TR2 2950X</a>
-              </div>
-            </div>
+          </ul>
+        </div>
           </div>
           <button type="button" class="btn btn-outline-dark" id="ssd_check">添加到我的選擇</button>
 
           <div class="SSD_box">
             <div class="SSD_information">
               <ul class="list-group ssd_title">
-                <li class="list-group-item">廠牌</li>
-                <li class="list-group-item">型號</li>
-                <li class="list-group-item">容量</li>
-                <li class="list-group-item">接口</li>
-                <li class="list-group-item">讀(M)</li>
-                <li class="list-group-item">寫(M)</li>
-                <li class="list-group-item">保固(年)</li>
-                <li class="list-group-item">售價:</li>
+                <li class="list-group-item" style="height:50px">廠牌</li>
+                <li class="list-group-item" style="height:50px">型號</li>
+                <li class="list-group-item" style="height:50px">容量</li>
+                <li class="list-group-item" style="height:50px">接口</li>
+                <li class="list-group-item" style="height:50px">讀(M)</li>
+                <li class="list-group-item" style="height:50px">寫(M)</li>
+                <li class="list-group-item" style="height:50px">保固(年)</li>
+                <li class="list-group-item" style="height:50px">售價:</li>
               </ul>
               <ul class="list-group ssd_group">
-                <li class="list-group-item">Samsung</li>
-                <li class="list-group-item">970 EVO NVMe</li>
-                <li class="list-group-item">250G</li>
-                <li class="list-group-item">M.2 PCIe</li>
-                <li class="list-group-item">3400</li>
-                <li class="list-group-item">1500</li>
-                <li class="list-group-item">5</li>
-                <li class="list-group-item">2450</li>
+                <li class="list-group-item" style="height:50px" id="ssdbrand"></li>
+                <li class="list-group-item" style="height:50px" id="ssdmodel"></li>
+                <li class="list-group-item" style="height:50px" id="ssdsize"></li>
+                <li class="list-group-item" style="height:50px" id="ssdinterface"></li>
+                <li class="list-group-item" style="height:50px" id="ssdreadspeed"></li>
+                <li class="list-group-item" style="height:50px" id="ssdwritespeed"></li>
+                <li class="list-group-item" style="height:50px" id="ssdwarranty"></li>
+                <li class="list-group-item" style="height:50px" id="ssdprice"></li>
               </ul>
             </div>
           </div>
@@ -217,45 +238,50 @@
           <button type="button" class="btn btn-secondary butt" id="LIST2">LIST</button>
         </div>
       </div>
+
       <div class="swiper-slide sw05">
         <div class="HDD_PAGE rounded">
-
+        <div class="GPU_image">
+        <img id="hddimg" src="images/hdd.png" style="height:100%">
+      </div>
 
           <div class="hdd_select">
-            <div class="dropdown">
-              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                選擇你的HDD
-              </a>
+          <div class="input-group-btn dropright">
+          <button type="button btn-secondary dropdown-toggle" class="btn dropdown-toggle" data-toggle="dropdown">
+            請選擇HDD
+            <span class="caret"></span>
+          </button>
+          <ul id="hddlist" class="dropdown-menu scrollbar1" style="height:200px;overflow:scroll">
+            <% for ( var i =0 ; i< hdd_data.length ; i++ ) { %>
+            <li><a>
+            <%= hdd_data[i].brand+" "+hdd_data[i].model+" "+hdd_data[i].size %>
+              </a></li>
+            <% } %>
 
-              <div class="dropdown-menu" aria-labelledby="ccccc">
-                <a class="dropdown-item" href="#">Ryzen TR2 2990WX</a>
-                <a class="dropdown-item" href="#">Ryzen TR2 2970WX</a>
-                <a class="dropdown-item" href="#">Ryzen TR2 2950X</a>
-              </div>
-            </div>
+           </ul>
+        </div>
           </div>
           <button type="button" class="btn btn-outline-dark" id="hdd_check">添加到我的選擇</button>
 
           <div class="HDD_box">
             <div class="HDD_information">
               <ul class="list-group hdd_title">
-                <li class="list-group-item">廠牌</li>
-                <li class="list-group-item">型號</li>
-                <li class="list-group-item">容量</li>
-                <li class="list-group-item">快取(MB)</li>
-                <li class="list-group-item">轉數(RPM)</li>
-                <li class="list-group-item">保固(年)</li>
-                <li class="list-group-item">售價:</li>
+                <li class="list-group-item" style="height:50px">廠牌</li>
+                <li class="list-group-item" style="height:50px">型號</li>
+                <li class="list-group-item" style="height:50px">容量</li>
+                <li class="list-group-item" style="height:50px">快取(MB)</li>
+                <li class="list-group-item" style="height:50px">轉數(RPM)</li>
+                <li class="list-group-item" style="height:50px">保固(年)</li>
+                <li class="list-group-item" style="height:50px">售價:</li>
               </ul>
               <ul class="list-group hdd_group">
-                <li class="list-group-item">Seagate</li>
-                <li class="list-group-item">新梭魚</li>
-                <li class="list-group-item">1TB</li>
-                <li class="list-group-item">64</li>
-                <li class="list-group-item">7200</li>
-                <li class="list-group-item">3</li>
-                <li class="list-group-item">1350</li>
+                <li class="list-group-item" style="height:50px" id="hddbrand"></li>
+                <li class="list-group-item" style="height:50px" id="hddmodel"></li>
+                <li class="list-group-item" style="height:50px" id="hddsize"></li>
+                <li class="list-group-item" style="height:50px" id="hddcache"></li>
+                <li class="list-group-item" style="height:50px" id="hddrpm"></li>
+                <li class="list-group-item" style="height:50px" id="hddwarranty"></li>
+                <li class="list-group-item" style="height:50px" id="hddprice"></li>
               </ul>
             </div>
           </div>
@@ -270,51 +296,47 @@
           <button type="button" class="btn btn-secondary butt" id="LIST3">LIST</button>
         </div>
       </div>
+
       <div class="swiper-slide sw06">
         <div class="RAM_PAGE rounded">
-
+        <div class="GPU_image">
+        <img id="ramimg" src="images/ram.png" style="height:100%">
+      </div>
 
           <div class="ram_select">
-            <div class="btn-group">
-              <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-                選擇你的RAM
-              </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Ryzen TR2 2990WX</a>
-                <a class="dropdown-item" href="#">Ryzen TR2 2970WX</a>
-                <a class="dropdown-item" href="#">Ryzen TR2 2950X</a>
-              </div>
-            </div>
-            <div class="btn-group">
-              <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-                數量
-              </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">0</a>
-                <a class="dropdown-item" href="#">1</a>
-                <a class="dropdown-item" href="#">2</a>
-              </div>
-            </div>
+          <div class="input-group-btn dropright">
+          <button type="button btn-secondary dropdown-toggle" class="btn dropdown-toggle" data-toggle="dropdown">
+            請選擇RAM
+            <span class="caret"></span>
+          </button>
+          <ul id="ramlist" class="dropdown-menu scrollbar1" style="height:200px;overflow:scroll">
+            <% for ( var i =0 ; i< ram_data.length ; i++ ) { %>
+            <li><a>
+            <%= ram_data[i].brand+" "+ram_data[i].size+" "+ram_data[i].frequency%>
+              </a></li>
+            <% } %>
+
+           </ul>
+        </div>
+            
           </div>
           <button type="button" class="btn btn-outline-dark" id="ram_check">添加到我的選擇</button>
 
           <div class="RAM_box">
             <div class="RAM_information">
               <ul class="list-group ram_title">
-                <li class="list-group-item">廠牌</li>
-                <li class="list-group-item">容量</li>
-                <li class="list-group-item">世代</li>
-                <li class="list-group-item">頻率(Mhz)</li>
-                <li class="list-group-item">售價:</li>
+                <li class="list-group-item" style="height:50px">廠牌</li>
+                <li class="list-group-item" style="height:50px">容量</li>
+                <li class="list-group-item" style="height:50px">世代</li>
+                <li class="list-group-item" style="height:50px">頻率(Mhz)</li>
+                <li class="list-group-item" style="height:50px">售價:</li>
               </ul>
               <ul class="list-group ram_group">
-                <li class="list-group-item">KLEVV(科賦)</li>
-                <li class="list-group-item">8GB</li>
-                <li class="list-group-item">DDR4</li>
-                <li class="list-group-item">3600</li>
-                <li class="list-group-item">13900</li>
+                <li class="list-group-item" style="height:50px" id="rambrand"></li>
+                <li class="list-group-item" style="height:50px" id="ramsize"></li>
+                <li class="list-group-item" style="height:50px" id="ramtype"></li>
+                <li class="list-group-item" style="height:50px" id="ramfrequency"></li>
+                <li class="list-group-item" style="height:50px" id="ramprice"></li>
               </ul>
             </div>
           </div>
@@ -330,34 +352,34 @@
         </div>
       </div>
 
-
       <div class="swiper-slide sw07">
         <div class="LIST_PAGE rounded">
           <div class="list_box" style="top:5%">
             <div class="list_information">
               <ul class="list-group list_title">
-                <li class="list-group-item">類別</li>
-                <li class="list-group-item">CPU</li>
-                <li class="list-group-item">GPU</li>
-                <li class="list-group-item">SSD</li>
-                <li class="list-group-item">HDD</li>
-                <li class="list-group-item">RAM</li>
+                <li class="list-group-item" style="height:50px">類別</li>
+                <li class="list-group-item" style="height:50px">CPU</li>
+                <li class="list-group-item" style="height:50px">GPU</li>
+                <li class="list-group-item" style="height:50px">SSD</li>
+                <li class="list-group-item" style="height:50px">HDD</li>
+                <li class="list-group-item" style="height:50px">RAM</li>
               </ul>
               <ul class="list-group list_name">
-                <li class="list-group-item">詳細</li>
-                <li class="list-group-item">Ryzen TR2 2990WX</li>
-                <li class="list-group-item">GIGABYTE GTX107</li>
-                <li class="list-group-item">Samsung 970 EVO NVMe 250G</li>
-                <li class="list-group-item">Seagate 新梭魚 1TB</li>
-                <li class="list-group-item">KLEVV(科賦) 8GB DDR4</li>
+                <li class="list-group-item" style="height:50px">詳細</li>
+                <li class="list-group-item" style="height:50px" id="list_cpu"></li>
+                <li class="list-group-item" style="height:50px" id="list_gpu"></li>
+                <li class="list-group-item" style="height:50px" id="list_ssd"></li>
+                <li class="list-group-item" style="height:50px" id="list_hdd"></li>
+                <li class="list-group-item" style="height:50px" id="list_ram"></li>
               </ul>
               <ul class="list-group list_price">
-                <li class="list-group-item">售價</li>
-                <li class="list-group-item">57999</li>
-                <li class="list-group-item">13900</li>
-                <li class="list-group-item">2450</li>
-                <li class="list-group-item">1350</li>
-                <li class="list-group-item">13900</li>
+                <li class="list-group-item" style="height:50px" >售價</li>
+                <li class="list-group-item" style="height:50px" id="price_cpu" name="price_cpu"></li>
+                <li class="list-group-item" style="height:50px" id="price_gpu"></li>
+                <li class="list-group-item" style="height:50px" id="price_ssd"></li>
+                <li class="list-group-item" style="height:50px" id="price_hdd"></li>
+                <li class="list-group-item" style="height:50px" id="price_ram"></li>
+
               </ul>
 
             </div>
@@ -365,7 +387,7 @@
           <form class="form-inline" id="allcheck">
             <div class="form-group ">
               <label for="inputPassword2" class="sr-only">訂單編號</label>
-              <input type="password" class="form-control" id="inputPassword2" placeholder="訂單編號">
+              <input class="form-control" id="listcode" placeholder="訂單編號">
             </div>
             <button type="submit" class="btn btn-primary ">送出訂單</button>
           </form>
@@ -388,13 +410,167 @@
     <div class="swiper-button-prev"></div>
   </div>
   </div>
-
-
+  <!-- get value from ejs -->
   <script>
-    $('#cpulist li a').on('click', function () {
-      document.getElementById("cpubrand").innerHTML=$(this).text();
+    var cputemp = <%-JSON.stringify(cpu_data) %>;  
+    var gputemp = <%-JSON.stringify(gpu_data) %>;  
+    var ramtemp = <%-JSON.stringify(ram_data) %>;  
+    var ssdtemp = <%-JSON.stringify(ssd_data) %>;  
+    var hddtemp = <%-JSON.stringify(hdd_data) %>;  
+    var mbtemp = <%-JSON.stringify(mb_data) %>;  
+  </script>
+
+
+  <!-- cpu value -->
+  <script>
+    var cpu_sel;
+    $('#cpulist li a').click(function(){
+      
+      //要把字串做trim才能比對
+      cpu_sel = $(this).text().trim();
+      
+      for (var x = 0; x < 64; x++) {
+        if (cputemp[x].model == cpu_sel) {
+          //圖片
+          document.getElementById("cpuimg").src = "images/cpu_images/" + cpu_sel + ".png";
+          document.getElementById("cpumodel").innerHTML = cputemp[x].model;
+          document.getElementById("cpubrand").innerHTML = cputemp[x].brand;
+          document.getElementById("cpubenchmark").innerHTML = cputemp[x].benchmark;
+          document.getElementById("cputdp").innerHTML = cputemp[x].TDP;
+          document.getElementById("cpuprice").innerHTML = cputemp[x].price;
+          document.getElementById("globalcpu").value = x;
+        }
+        
+
+      }
+      
+    });
+
+  </script>
+
+  <!-- gpu value -->
+  <script>
+    var gpu_sel;
+    var gg_temp;
+    $('#gpulist li a').on('click', function () {
+      gpu_sel=$(this).text().trim();
+      
+      for (var x = 0; x < 102; x++) {
+        if (gputemp[x].brand+" "+gputemp[x].core+" "+gputemp[x].memory == gpu_sel) {
+          document.getElementById("gpuimg").src = "images/gpu_images/" + gputemp[x].core + ".png";
+          document.getElementById("gpucore").innerHTML = gputemp[x].core;
+          document.getElementById("gpubrand").innerHTML = gputemp[x].brand;
+          document.getElementById("gpumemory").innerHTML = gputemp[x].memory;
+          document.getElementById("gpubenchmark").innerHTML = gputemp[x].benchmark;
+          document.getElementById("gputdp").innerHTML = gputemp[x].TDP;
+          document.getElementById("gpuwarranty").innerHTML = gputemp[x].warranty;
+          document.getElementById("gpuprice").innerHTML = gputemp[x].price;
+          document.getElementById("globalgpu").value = x;
+
+        }
+      }
     });
   </script>
+
+  <!-- ssd value -->
+  <script>
+    var ssd_sel;
+    var gg_temp;
+    $('#ssdlist li a').on('click', function () {
+      ssd_sel=$(this).text().trim();
+      
+      for (var x = 0; x < ssdtemp.length; x++) {
+        if (ssdtemp[x].brand+" "+ssdtemp[x].model+" "+ssdtemp[x].size == ssd_sel) {
+          document.getElementById("ssdbrand").innerHTML = ssdtemp[x].brand;
+          document.getElementById("ssdmodel").innerHTML = ssdtemp[x].model;
+          document.getElementById("ssdsize").innerHTML = ssdtemp[x].size;
+          document.getElementById("ssdinterface").innerHTML = ssdtemp[x].interface;
+          document.getElementById("ssdreadspeed").innerHTML = ssdtemp[x].readspeed;
+          document.getElementById("ssdwritespeed").innerHTML = ssdtemp[x].writespeed;
+          document.getElementById("ssdwarranty").innerHTML = ssdtemp[x].warranty;
+          document.getElementById("ssdprice").innerHTML = ssdtemp[x].price;
+          document.getElementById("globalssd").value = x;
+        }
+      }
+    });
+  </script>
+
+  <!-- hdd value -->
+  <script>
+    var hdd_sel;
+    var gg_temp;
+    $('#hddlist li a').on('click', function () {
+      hdd_sel=$(this).text().trim();
+      
+      for (var x = 0; x < hddtemp.length; x++) {
+        if (hddtemp[x].brand+" "+hddtemp[x].model+" "+hddtemp[x].size == hdd_sel) {
+          document.getElementById("hddbrand").innerHTML = hddtemp[x].brand;
+          document.getElementById("hddmodel").innerHTML = hddtemp[x].model;
+          document.getElementById("hddsize").innerHTML = hddtemp[x].size;
+          document.getElementById("hddcache").innerHTML = hddtemp[x].cache;
+          document.getElementById("hddrpm").innerHTML = hddtemp[x].rpm;
+          document.getElementById("hddwarranty").innerHTML = hddtemp[x].warranty;
+          document.getElementById("hddprice").innerHTML = hddtemp[x].price;
+          document.getElementById("globalhdd").value = x;
+        }
+      }
+    });
+  </script>
+  <!-- ram value -->
+  <script>
+    var ram_sel;
+    var gg_temp;
+    $('#ramlist li a').on('click', function () {
+      ram_sel=$(this).text().trim();
+      
+      for (var x = 0; x < ramtemp.length; x++) {
+        if (ramtemp[x].brand+" "+ramtemp[x].size+" "+ramtemp[x].frequency == ram_sel) {
+          document.getElementById("rambrand").innerHTML = ramtemp[x].brand;
+          document.getElementById("ramfrequency").innerHTML = ramtemp[x].frequency;
+          document.getElementById("ramsize").innerHTML = ramtemp[x].size;
+          document.getElementById("ramtype").innerHTML = ramtemp[x].type;
+          document.getElementById("ramprice").innerHTML = ramtemp[x].price;
+          document.getElementById("globalram").value = x;
+        }
+      }
+    });
+  </script>
+
+  <!--list-->
+  <script>
+  var temp;
+  $("#cpucheck").click(function () {
+    temp=document.getElementById('globalcpu').value;
+    document.getElementById('list_cpu').innerText= cputemp[temp].brand+" "+cputemp[temp].model;
+    document.getElementById('price_cpu').innerText= cputemp[temp].price;
+  });
+  $("#gpu_check").click(function () {
+    temp=document.getElementById('globalgpu').value;
+    document.getElementById('list_gpu').innerText= gputemp[temp].brand+" "+gputemp[temp].core+" "+gputemp[temp].memory;
+    document.getElementById('price_gpu').innerText= gputemp[temp].price;
+  });
+  $("#ssd_check").click(function () {
+    temp=document.getElementById('globalssd').value;
+    document.getElementById('list_ssd').innerText= ssdtemp[temp].brand+" "+ssdtemp[temp].model+" "+ssdtemp[temp].size
+    document.getElementById('price_ssd').innerText= ssdtemp[temp].price;
+  });
+  $("#hdd_check").click(function () {
+    temp=document.getElementById('globalhdd').value;
+    document.getElementById('list_hdd').innerText= hddtemp[temp].brand+" "+hddtemp[temp].model+" "+hddtemp[temp].size;
+    document.getElementById('price_hdd').innerText= hddtemp[temp].price;
+  });
+  $("#ram_check").click(function () {
+    temp=document.getElementById('globalram').value;
+    document.getElementById('list_ram').innerText= ramtemp[temp].brand+" "+ramtemp[temp].size+" "+ramtemp[temp].frequency;
+    document.getElementById('price_ram').innerText= ramtemp[temp].price;
+  });
+ 
+    
+  </script>
+ 
+
+
+
   <!-- Initialize Swiper -->
   <script>
 

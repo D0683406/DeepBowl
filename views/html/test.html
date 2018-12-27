@@ -20,32 +20,26 @@
 </head>
 
 <body>
-  <div class="input-group">
-    <li ID="datebox">3213</li>
+  <input id="globalcpu">
+  <button id="cpuchoice">選擇cpu</button>
 
-    <div class="input-group-btn">
-      <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-        <span class="caret"></span>
-      </button>
-      <ul id="demolist" class="dropdown-menu">
-        <li><a href="#dasd">A</a></li>
-        <li><a href="#sadsa">B</a></li>
-        <li><a href="#dasd">C</a></li>
-      </ul>
-    </div>
-  </div>
-  <button onclick="myFunction()">点击这里</button>
+  <button type="button" class="btn btn-outline-dark" id="cpucheck">添加到我的選擇</button>
+  <a id="list_cpu"></a>
   <script>
-    function myFunction() {
-      document.getElementById("datebox").innerHTML = "Item was changed";
-    }
+    $("#cpuchoice").click(function () {
+      x = "123132312312";
+      document.getElementById("globalcpu").value = x;
+    })
   </script>
-
   <script>
-    $('#demolist li a').on('click', function () {
-      document.getElementById("datebox").innerHTML=$(this).text();
+    var temp;
+    $("#cpucheck").click(function () {
+      temp = document.getElementById('globalcpu').value;
+      document.getElementById('list_cpu').innerText = temp;
     });
   </script>
+
+
 
 </body>
 
