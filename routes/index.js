@@ -89,7 +89,7 @@ router.post('/addlist', function(req, res, next) {
         hdd_id: req.body.hdd_id,
         ssd_id: req.body.ssd_id,
         ram_id: req.body.ram_id,
-        list_id: req.body.list_id
+        id: req.body.id
     };
 
     //console.log(sql);
@@ -107,7 +107,7 @@ router.get('/userDelete', function(req, res, next) {
     var id = req.query.id;
     var db = req.con;
 
-    var qur = db.query('DELETE FROM account WHERE id = ?', id, function(err, rows) {
+    var qur = db.query('DELETE FROM hardwarelist WHERE id = ?', id, function(err, rows) {
         if (err) {
             console.log(err);
         }

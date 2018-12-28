@@ -396,9 +396,10 @@
               <input type="hidden" id="hidden_ssd" name="ssd_id" placeholder="ssd_id">
               <input type="hidden" id="hidden_ram" name="ram_id" placeholder="ram_id">
 
-              <input name="list_id" id="listcode" placeholder="訂單編號">
+              <input name="id" id="listcode" placeholder="訂單編號">
             </div>
             <button type="submit" class="btn btn-primary ">送出訂單</button>
+            <input type="button" name="delete" value="Delete" onclick="Delete('TEST')" />
           </form>
         </div>
         <div class="bar-group">
@@ -577,8 +578,14 @@
     document.getElementById('list_ram').innerText= ramtemp[temp].brand+" "+ramtemp[temp].size+" "+ramtemp[temp].frequency;
     document.getElementById('price_ram').innerText= ramtemp[temp].price;
   });
-  
+
+  function Delete(id) {
+    var rs = confirm('Confirm to delete?');
+    if (rs) {
+        window.location.href = "/userDelete?id=" + id;
+    }
 }
+
   </script>
  
 
