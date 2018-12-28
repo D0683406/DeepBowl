@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta charset="utf-8">
   <title>幫組電腦的虛擬學長</title>
   <!-- Link Swiper's CSS -->
@@ -28,6 +29,9 @@
   <input type="hidden" id="globalssd">
   <input type="hidden" id="globalhdd">
   <!-- hidden-->
+  <!-- hidden list-->
+  
+  <!-- hidden list-->
 
   <!-- chatbot -->
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -384,10 +388,15 @@
 
             </div>
           </div>
-          <form class="form-inline" id="allcheck">
+          <form action="/addlist" method="post" accept-charset="utf-8" id="allcheck">
             <div class="form-group ">
-              <label for="inputPassword2" class="sr-only">訂單編號</label>
-              <input class="form-control" id="listcode" placeholder="訂單編號">
+              <input type="hidden" id="hidden_cpu" name="cpu_id" placeholder="cpu_id">
+              <input type="hidden" id="hidden_gpu" name="gpu_id" placeholder="gpu_id">
+              <input type="hidden" id="hidden_hdd" name="hdd_id" placeholder="hdd_id">
+              <input type="hidden" id="hidden_ssd" name="ssd_id" placeholder="ssd_id">
+              <input type="hidden" id="hidden_ram" name="ram_id" placeholder="ram_id">
+
+              <input name="list_id" id="listcode" placeholder="訂單編號">
             </div>
             <button type="submit" class="btn btn-primary ">送出訂單</button>
           </form>
@@ -535,37 +544,41 @@
       }
     });
   </script>
-
   <!--list-->
   <script>
   var temp;
   $("#cpucheck").click(function () {
     temp=document.getElementById('globalcpu').value;
+    document.getElementById("hidden_cpu").value=cputemp[temp].brand+" "+cputemp[temp].model;
     document.getElementById('list_cpu').innerText= cputemp[temp].brand+" "+cputemp[temp].model;
     document.getElementById('price_cpu').innerText= cputemp[temp].price;
   });
   $("#gpu_check").click(function () {
     temp=document.getElementById('globalgpu').value;
+    document.getElementById("hidden_gpu").value=gputemp[temp].brand+" "+gputemp[temp].core+" "+gputemp[temp].memory;
     document.getElementById('list_gpu').innerText= gputemp[temp].brand+" "+gputemp[temp].core+" "+gputemp[temp].memory;
     document.getElementById('price_gpu').innerText= gputemp[temp].price;
   });
   $("#ssd_check").click(function () {
     temp=document.getElementById('globalssd').value;
-    document.getElementById('list_ssd').innerText= ssdtemp[temp].brand+" "+ssdtemp[temp].model+" "+ssdtemp[temp].size
+    document.getElementById("hidden_ssd").value=ssdtemp[temp].brand+" "+ssdtemp[temp].model+" "+ssdtemp[temp].size;
+    document.getElementById('list_ssd').innerText= ssdtemp[temp].brand+" "+ssdtemp[temp].model+" "+ssdtemp[temp].size;
     document.getElementById('price_ssd').innerText= ssdtemp[temp].price;
   });
   $("#hdd_check").click(function () {
     temp=document.getElementById('globalhdd').value;
+    document.getElementById("hidden_hdd").value=hddtemp[temp].brand+" "+hddtemp[temp].model+" "+hddtemp[temp].size;
     document.getElementById('list_hdd').innerText= hddtemp[temp].brand+" "+hddtemp[temp].model+" "+hddtemp[temp].size;
     document.getElementById('price_hdd').innerText= hddtemp[temp].price;
   });
   $("#ram_check").click(function () {
     temp=document.getElementById('globalram').value;
+    document.getElementById("hidden_ram").value=ramtemp[temp].brand+" "+ramtemp[temp].size+" "+ramtemp[temp].frequency;
     document.getElementById('list_ram').innerText= ramtemp[temp].brand+" "+ramtemp[temp].size+" "+ramtemp[temp].frequency;
     document.getElementById('price_ram').innerText= ramtemp[temp].price;
   });
- 
-    
+  
+}
   </script>
  
 

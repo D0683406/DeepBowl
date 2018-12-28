@@ -3,60 +3,275 @@
 
 <head>
   <meta charset="utf-8">
-  <title>CPU Q&A</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Bootstrap core CSS -->
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
-    <link href="./css/qa_all_style.css" rel="stylesheet">
-    <title>CPU排名</title>
-    <!-- BootStraps JS-->
-    <script src="./js/jquery-3.3.1.min.js"></script>
-    <script>window.jQuery</script>
-    <script src="./js/popper.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Bootstrap core CSS -->
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link href="./css/qa_all_style.css" rel="stylesheet">
+  <title>MB Q&A</title>
+
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="../css/swiper.min.css">
+
+  <!-- BootStraps JS-->
+  <script src="./js/jquery-3.3.1.min.js"></script>
+  <script>window.jQuery</script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
-        <div class="title">
-                <div class="home">
-                  <a href="/"><button type="button" class="btn btn-outline-light" id="build">組電腦</button></a>
-                  <a href="/cpu_rank"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
-                  <a href="/qa"><button type="button" class="btn btn-outline-light" id="qa">Q&A</button></a>
-            
-                  <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" id="content">
-                    Chatbot
-                  </button>
-                  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLongTitle">Chatbot</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <iframe allow="microphone;" width="100%" height="500" src="https://console.dialogflow.com/api-client/demo/embedded/d43607d5-d943-4736-9e0e-8f23ea18557d">
-                          </iframe>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                <div class="question_table">
-                    Q：怎麼選擇處理器？
-                </div>
-                <div class="answer_table">
-                        A：一般來說處理器的性能主要是看核心數跟時脈，經常多工、繪圖、轉檔、算圖、render適合多核心的處理器；而玩線上遊戲或執行多核優化較差的程式則適合時脈較高的處理器。
-                </div>
-                </div>
-              </div>
+  <!-- chatbot -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Chatbot</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <iframe allow="microphone;" width="100%" height="500" src="https://console.dialogflow.com/api-client/demo/embedded/d43607d5-d943-4736-9e0e-8f23ea18557d">
+          </iframe>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Swiper -->
+  <div class="swiper-container">
+
+    <div class="swiper-wrapper">
+      <div class="swiper-slide sw01">
+        <!-- 上方功能列 -->
+        <img src="./images/card.jpg" id="home_card">
+        <div class="home">
+          <a href="/"><button type="button" class="btn btn-outline-light" id="build">組電腦</button></a>
+          <a href="/cpu_rank"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
+          <a href="/qa"><button type="button" class="btn btn-outline-light" id="qa">Q&A</button></a>
+          <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" id="content">
+            Chatbot
+          </button>
+          <a href="/qa_cpu"><button type="button" class="btn btn-outline-light " id="choice_CPU">CPU Q&A</button></a>
+          <a href="/qa_gpu"><button type="button" class="btn btn-outline-light " id="choice_GPU">GPU Q&A</button></a>
+          <a href="/qa_ram"><button type="button" class="btn btn-outline-light " id="choice_RAM">RAM Q&A</button></a>
+          <a href="/qa_mb"><button type="button" class="btn btn-outline-light active" id="choice_MB">MB Q&A</button></a>
+          <a href="/qa_disk"><button type="button" class="btn btn-outline-light" id="choice_DISK">DISK Q&A</button></a>
+        </div>
+        <!--Q1-->
+        <div class="question_table">
+          Q1：選購主機板最重要的事是什麼？
+        </div>
+        <div class="shortanswer_table">
+          A：確認是否買對腳位
+        </div>
+      </div>
+      <div class="swiper-slide sw02">
+        <!-- 上方功能列 -->
+        <img src="./images/card.jpg" id="home_card">
+        <div class="home">
+            <a href="/"><button type="button" class="btn btn-outline-light" id="build">組電腦</button></a>
+            <a href="/cpu_rank"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
+            <a href="/qa"><button type="button" class="btn btn-outline-light" id="qa">Q&A</button></a>
+            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" id="content">
+              Chatbot
+            </button>
+            <a href="/qa_cpu"><button type="button" class="btn btn-outline-light " id="choice_CPU">CPU Q&A</button></a>
+            <a href="/qa_gpu"><button type="button" class="btn btn-outline-light " id="choice_GPU">GPU Q&A</button></a>
+            <a href="/qa_ram"><button type="button" class="btn btn-outline-light " id="choice_RAM">RAM Q&A</button></a>
+            <a href="/qa_mb"><button type="button" class="btn btn-outline-light active" id="choice_MB">MB Q&A</button></a>
+            <a href="/qa_disk"><button type="button" class="btn btn-outline-light" id="choice_DISK">DISK Q&A</button></a>
+          </div>
+        <!--Q2-->
+        <div class="question_table">
+          Q2：若要買Intel八代處理器有哪些主機板可以選購呢？
+        </div>
+        <div class="answer_table">
+          A：八代雖然也是1151腳位，但是只有B360、H370、Z370這些主板能用，要注意！
+        </div>
+      </div>
+      <div class="swiper-slide sw03">
+        <!-- 上方功能列 -->
+        <img src="./images/card.jpg" id="home_card">
+        <div class="home">
+            <a href="/"><button type="button" class="btn btn-outline-light" id="build">組電腦</button></a>
+            <a href="/cpu_rank"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
+            <a href="/qa"><button type="button" class="btn btn-outline-light" id="qa">Q&A</button></a>
+            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" id="content">
+              Chatbot
+            </button>
+            <a href="/qa_cpu"><button type="button" class="btn btn-outline-light " id="choice_CPU">CPU Q&A</button></a>
+            <a href="/qa_gpu"><button type="button" class="btn btn-outline-light " id="choice_GPU">GPU Q&A</button></a>
+            <a href="/qa_ram"><button type="button" class="btn btn-outline-light " id="choice_RAM">RAM Q&A</button></a>
+            <a href="/qa_mb"><button type="button" class="btn btn-outline-light active" id="choice_MB">MB Q&A</button></a>
+            <a href="/qa_disk"><button type="button" class="btn btn-outline-light" id="choice_DISK">DISK Q&A</button></a>
+          </div>
+        <!--Q3-->
+        <div class="question_table">
+          Q3：若要買Intel六、七代處理器有哪些主機板可以選購呢？
+        </div>
+        <div class="shortanswer_table">
+          A：Intel六、七代處理器支援所有1151腳位的主機板。
+        </div>
+      </div>
+      <div class="swiper-slide sw04">
+        <!-- 上方功能列 -->
+        <img src="./images/card.jpg" id="home_card">
+        <div class="home">
+            <a href="/"><button type="button" class="btn btn-outline-light" id="build">組電腦</button></a>
+            <a href="/cpu_rank"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
+            <a href="/qa"><button type="button" class="btn btn-outline-light" id="qa">Q&A</button></a>
+            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" id="content">
+              Chatbot
+            </button>
+            <a href="/qa_cpu"><button type="button" class="btn btn-outline-light " id="choice_CPU">CPU Q&A</button></a>
+            <a href="/qa_gpu"><button type="button" class="btn btn-outline-light " id="choice_GPU">GPU Q&A</button></a>
+            <a href="/qa_ram"><button type="button" class="btn btn-outline-light " id="choice_RAM">RAM Q&A</button></a>
+            <a href="/qa_mb"><button type="button" class="btn btn-outline-light active" id="choice_MB">MB Q&A</button></a>
+            <a href="/qa_disk"><button type="button" class="btn btn-outline-light" id="choice_DISK">DISK Q&A</button></a>
+          </div>
+        <!--Q4-->
+        <div class="question_table">
+          Q4：Intel 1151 腳位主機板的晶片有分哪些系列呢？
+        </div>
+        <div class="answer_table">
+          A：主機板的晶片分為：B系列、H系列、Z系列，越後面的晶片支援的東西越多，並代表越後面的晶片主機板用料越高級。
+        </div>
+      </div>
+      <div class="swiper-slide sw05">
+        <!-- 上方功能列 -->
+        <img src="./images/card.jpg" id="home_card">
+        <div class="home">
+            <a href="/"><button type="button" class="btn btn-outline-light" id="build">組電腦</button></a>
+            <a href="/cpu_rank"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
+            <a href="/qa"><button type="button" class="btn btn-outline-light" id="qa">Q&A</button></a>
+            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" id="content">
+              Chatbot
+            </button>
+            <a href="/qa_cpu"><button type="button" class="btn btn-outline-light " id="choice_CPU">CPU Q&A</button></a>
+            <a href="/qa_gpu"><button type="button" class="btn btn-outline-light " id="choice_GPU">GPU Q&A</button></a>
+            <a href="/qa_ram"><button type="button" class="btn btn-outline-light " id="choice_RAM">RAM Q&A</button></a>
+            <a href="/qa_mb"><button type="button" class="btn btn-outline-light active" id="choice_MB">MB Q&A</button></a>
+            <a href="/qa_disk"><button type="button" class="btn btn-outline-light" id="choice_DISK">DISK Q&A</button></a>
+          </div>
+        <!--Q5-->
+        <div class="question_table">
+          Q5：主機板對記憶體的時脈支持有無限制？
+        </div>
+        <div class="answer_table">
+          A：B系列時脈只能到2666，要注意！要買帶k的處理器來超頻的話建議選擇Z板，如果不超頻選擇B板
+        </div>
+      </div>
+      <div class="swiper-slide sw06">
+        <!-- 上方功能列 -->
+        <img src="./images/card.jpg" id="home_card">
+        <div class="home">
+            <a href="/"><button type="button" class="btn btn-outline-light" id="build">組電腦</button></a>
+            <a href="/cpu_rank"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
+            <a href="/qa"><button type="button" class="btn btn-outline-light" id="qa">Q&A</button></a>
+            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" id="content">
+              Chatbot
+            </button>
+            <a href="/qa_cpu"><button type="button" class="btn btn-outline-light " id="choice_CPU">CPU Q&A</button></a>
+            <a href="/qa_gpu"><button type="button" class="btn btn-outline-light " id="choice_GPU">GPU Q&A</button></a>
+            <a href="/qa_ram"><button type="button" class="btn btn-outline-light " id="choice_RAM">RAM Q&A</button></a>
+            <a href="/qa_mb"><button type="button" class="btn btn-outline-light active" id="choice_MB">MB Q&A</button></a>
+            <a href="/qa_disk"><button type="button" class="btn btn-outline-light" id="choice_DISK">DISK Q&A</button></a>
+          </div>
+        <!--Q6-->
+        <div class="question_table">
+          Q6：AMD主機板的腳位、規格？
+        </div>
+        <div class="shortanswer_table">
+          A：AMD的AM4腳位應對的是Ryzen的處理器，依晶片分為B350及X370、還有對於2000系列有所優化的B450及X470。由於B系列及X系列都能超頻，對於RAM的頻率也沒有鎖定，一般來說選B450就好，如果要挑戰大超在上X470。如果是1代Ryzen的用戶，要升級的話不像Intel要大換血，B350及X370也是能使用2000系列的CPU的喔！
+        </div>
+        <div class="swiper-slide sw07">
+          <!-- 上方功能列 -->
+          <img src="./images/card.jpg" id="home_card">
+          <div class="home">
+              <a href="/"><button type="button" class="btn btn-outline-light" id="build">組電腦</button></a>
+              <a href="/cpu_rank"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
+              <a href="/qa"><button type="button" class="btn btn-outline-light" id="qa">Q&A</button></a>
+              <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" id="content">
+                Chatbot
+              </button>
+              <a href="/qa_cpu"><button type="button" class="btn btn-outline-light " id="choice_CPU">CPU Q&A</button></a>
+              <a href="/qa_gpu"><button type="button" class="btn btn-outline-light " id="choice_GPU">GPU Q&A</button></a>
+              <a href="/qa_ram"><button type="button" class="btn btn-outline-light " id="choice_RAM">RAM Q&A</button></a>
+              <a href="/qa_mb"><button type="button" class="btn btn-outline-light active" id="choice_MB">MB Q&A</button></a>
+              <a href="/qa_disk"><button type="button" class="btn btn-outline-light" id="choice_DISK">DISK Q&A</button></a>
+            </div>
+          <!--Q7-->
+          <div class="question_table">
+            Q7：主機板尺寸大小？
+          </div>
+          <div class="answer_table">
+            A：主機板主流大小由大到小分為atx m-atx itx，除非空間不足不然一般來說都會建議拿atx大小的，往後的擴充性會比較好，而且通常同型號的大板的用料都會好上小板一些！
+          </div>
+        </div>
+        <div class="swiper-slide sw08">
+          <!-- 上方功能列 -->
+          <img src="./images/card.jpg" id="home_card">
+          <div class="home">
+              <a href="/"><button type="button" class="btn btn-outline-light" id="build">組電腦</button></a>
+              <a href="/cpu_rank"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
+              <a href="/qa"><button type="button" class="btn btn-outline-light" id="qa">Q&A</button></a>
+              <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" id="content">
+                Chatbot
+              </button>
+              <a href="/qa_cpu"><button type="button" class="btn btn-outline-light " id="choice_CPU">CPU Q&A</button></a>
+              <a href="/qa_gpu"><button type="button" class="btn btn-outline-light " id="choice_GPU">GPU Q&A</button></a>
+              <a href="/qa_ram"><button type="button" class="btn btn-outline-light " id="choice_RAM">RAM Q&A</button></a>
+              <a href="/qa_mb"><button type="button" class="btn btn-outline-light active" id="choice_MB">MB Q&A</button></a>
+              <a href="/qa_disk"><button type="button" class="btn btn-outline-light" id="choice_DISK">DISK Q&A</button></a>
+            </div>
+          <!--Q8-->
+          <div class="question_table">
+            Q8：推薦的主機板品牌？
+          </div>
+          <div class="answer_table">
+            A：主流廠商有華碩、華擎、技嘉、微星等等⋯⋯
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+
+    <!-- Add Scrollbar -->
+    <div class="swiper-scrollbar"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="../js/swiper.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+
+    var swiper = new Swiper('.swiper-container', {
+      keyboard: {
+        enabled: true,
+      },
+      scrollbar: {
+        el: '.swiper-scrollbar',
+        hide: true,
+      },
+    });
+  </script>
 </body>
 
 </html>

@@ -3,60 +3,156 @@
 
 <head>
   <meta charset="utf-8">
-  <title>CPU Q&A</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Bootstrap core CSS -->
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
-    <link href="./css/qa_all_style.css" rel="stylesheet">
-    <title>CPU排名</title>
-    <!-- BootStraps JS-->
-    <script src="./js/jquery-3.3.1.min.js"></script>
-    <script>window.jQuery</script>
-    <script src="./js/popper.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Bootstrap core CSS -->
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link href="./css/qa_all_style.css" rel="stylesheet">
+  <title>DISK Q&A</title>
+
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="../css/swiper.min.css">
+
+  <!-- BootStraps JS-->
+  <script src="./js/jquery-3.3.1.min.js"></script>
+  <script>window.jQuery</script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
-        <div class="title">
-                <div class="home">
-                  <a href="/"><button type="button" class="btn btn-outline-light" id="build">組電腦</button></a>
-                  <a href="/cpu_rank"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
-                  <a href="/qa"><button type="button" class="btn btn-outline-light" id="qa">Q&A</button></a>
-            
-                  <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" id="content">
-                    Chatbot
-                  </button>
-                  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLongTitle">Chatbot</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <iframe allow="microphone;" width="100%" height="500" src="https://console.dialogflow.com/api-client/demo/embedded/d43607d5-d943-4736-9e0e-8f23ea18557d">
-                          </iframe>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                <div class="question_table">
-                    Q：怎麼選擇處理器？
-                </div>
-                <div class="answer_table">
-                        A：一般來說處理器的性能主要是看核心數跟時脈，經常多工、繪圖、轉檔、算圖、render適合多核心的處理器；而玩線上遊戲或執行多核優化較差的程式則適合時脈較高的處理器。
-                </div>
-                </div>
-              </div>
+  <!-- chatbot -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Chatbot</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <iframe allow="microphone;" width="100%" height="500" src="https://console.dialogflow.com/api-client/demo/embedded/d43607d5-d943-4736-9e0e-8f23ea18557d">
+          </iframe>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Swiper -->
+  <div class="swiper-container">
+
+    <div class="swiper-wrapper">
+      <div class="swiper-slide sw01">
+        <!-- 上方功能列 -->
+        <img src="./images/card.jpg" id="home_card">
+        <div class="home">
+            <a href="/"><button type="button" class="btn btn-outline-light" id="build">組電腦</button></a>
+            <a href="/cpu_rank"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
+            <a href="/qa"><button type="button" class="btn btn-outline-light" id="qa">Q&A</button></a>
+            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" id="content">
+                Chatbot
+            </button>
+            <a href="/qa_cpu"><button type="button" class="btn btn-outline-light " id="choice_CPU">CPU Q&A</button></a>
+      <a href="/qa_gpu"><button type="button" class="btn btn-outline-light" id="choice_GPU">GPU Q&A</button></a>
+      <a href="/qa_ram"><button type="button" class="btn btn-outline-light" id="choice_RAM">RAM Q&A</button></a>
+      <a href="/qa_mb"><button type="button" class="btn btn-outline-light" id="choice_MB">MB Q&A</button></a>
+      <a href="/qa_disk"><button type="button" class="btn btn-outline-light active" id="choice_DISK">DISK Q&A</button></a>
+          </div>
+        <!--Q1-->
+        <div class="question_table">
+          Q1：如何區分HDD和SSD？
+        </div>
+        <div class="answer_table">
+          A：HDD速度較慢但較便宜，SSD速度較快不過比較貴。
+        </div>
+      </div>
+      <div class="swiper-slide sw02">
+         <!-- 上方功能列 -->
+         <img src="./images/card.jpg" id="home_card">
+         <div class="home">
+            <a href="/"><button type="button" class="btn btn-outline-light" id="build">組電腦</button></a>
+            <a href="/cpu_rank"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
+            <a href="/qa"><button type="button" class="btn btn-outline-light" id="qa">Q&A</button></a>
+            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" id="content">
+                Chatbot
+            </button>
+            <a href="/qa_cpu"><button type="button" class="btn btn-outline-light " id="choice_CPU">CPU Q&A</button></a>
+      <a href="/qa_gpu"><button type="button" class="btn btn-outline-light" id="choice_GPU">GPU Q&A</button></a>
+      <a href="/qa_ram"><button type="button" class="btn btn-outline-light" id="choice_RAM">RAM Q&A</button></a>
+      <a href="/qa_mb"><button type="button" class="btn btn-outline-light" id="choice_MB">MB Q&A</button></a>
+      <a href="/qa_disk"><button type="button" class="btn btn-outline-light active" id="choice_DISK">DISK Q&A</button></a>
+          </div>
+         <!--Q2-->
+         <div class="question_table">
+           Q2：該如何購買硬碟？
+         </div>
+         <div class="answer_table">
+           A：無特殊需求的話建議一顆小容量的SSD當存放作業系統的開機硬碟，再選購一顆大容量的HDD儲存資料，軟體有讀取速度的需求的話再加一顆SSD
+         </div>
+      </div>
+      <div class="swiper-slide sw03">
+        <!-- 上方功能列 -->
+        <img src="./images/card.jpg" id="home_card">
+        <div class="home">
+            <a href="/"><button type="button" class="btn btn-outline-light" id="build">組電腦</button></a>
+            <a href="/cpu_rank"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
+            <a href="/qa"><button type="button" class="btn btn-outline-light" id="qa">Q&A</button></a>
+            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" id="content">
+                Chatbot
+            </button>
+            <a href="/qa_cpu"><button type="button" class="btn btn-outline-light " id="choice_CPU">CPU Q&A</button></a>
+      <a href="/qa_gpu"><button type="button" class="btn btn-outline-light" id="choice_GPU">GPU Q&A</button></a>
+      <a href="/qa_ram"><button type="button" class="btn btn-outline-light" id="choice_RAM">RAM Q&A</button></a>
+      <a href="/qa_mb"><button type="button" class="btn btn-outline-light" id="choice_MB">MB Q&A</button></a>
+      <a href="/qa_disk"><button type="button" class="btn btn-outline-light active" id="choice_DISK">DISK Q&A</button></a>
+          </div>
+        <!--Q3-->
+        <div class="question_table">
+          Q3：推薦的硬碟品牌？
+        </div>
+        <div class="answer_table">
+          A：無特殊需求的話建議一顆小容量的SSD當存放作業系統的開機硬碟，再選購一顆大容量的HDD儲存資料，軟體有讀取速度的需求的話再加一顆SSD
+        </div>
+      </div>
+      
+      </div>
+
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    
+    <!-- Add Scrollbar -->
+    <div class="swiper-scrollbar"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="../js/swiper.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    
+    var swiper = new Swiper('.swiper-container', {
+      keyboard: {
+        enabled: true,
+      },
+      scrollbar: {
+        el: '.swiper-scrollbar',
+        hide: true,
+      },
+    });
+  </script>
 </body>
 
 </html>
