@@ -120,6 +120,13 @@ router.get('/cpu_rank', function(req, res, next) {
     //運行rank.ejs
     res.render('cpu_rank');
 });
+//gpu_rank
+router.get('/gpu_rank', function(req, res, next) {
+
+    //運行rank.ejs
+    res.render('gpu_rank');
+});
+
 
 //qa
 router.get('/qa', function(req, res, next) {

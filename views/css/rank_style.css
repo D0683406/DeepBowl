@@ -42,14 +42,15 @@ body {
     height: 5%;
 }
 
-
+.rankgg {
+    background-color: black;
+}
 
 .container {
     position: absolute;
     top: 100%;
     left: 20%;
 }
-
 
 .title {
     position: absolute;
