@@ -68,15 +68,6 @@ body {
     width: 10%;
 }
 
-#home_build {
-    position: absolute;
-    top: 75%;
-    right: 35%;
-    width: 30%;
-    height: 10%;
-    font-size: 35px;
-  }  
-
 #build {
     position: absolute;
     top: 5%;
