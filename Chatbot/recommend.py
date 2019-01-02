@@ -9,8 +9,6 @@ import  pymysql
 
 def get_one_hardware(hardware=None, price=None, function=None, brand=None, size=None, game=None):
 
-    #  給予絕對路徑
-    LIST_CSV = '/Users/pandaoao/DeepBowl/DATA/cpu_list.csv'
     msg=''
     msg2=''
     msg3=''
@@ -20,16 +18,41 @@ def get_one_hardware(hardware=None, price=None, function=None, brand=None, size=
         msg = '選擇硬體：' + str(hardware) 
         msg2 = ', 選擇價錢：' + str(int(price))
 
-        LIST_CSV = '/Users/pandaoao/DeepBowl/DATA/' + str(hardware).lower() + '_list.csv'
-        pd_cpu = pd.read_csv(LIST_CSV)
-        pd_cpu['price'] = pd_cpu['price'].astype('int')
-        price = price
+        conn  =  pymysql . connect ( host = '127.0.0.1' ,  user = 'root' ,  passwd = "" ,  db = 'deepbowl' ) 
+        cur  =  conn . cursor () 
+        #brand = '美光'
+        #size= '16GB'
+        msg = '選擇硬體：' + str(hardware) 
+        msg2 = ', 選擇價錢：' + str(int(price))
         logN = int ( math.log10(price) ) 
-        print(logN)
-        print(math.pow(10,3)-1)
-        filter1 = (pd_cpu['price'] > price - math.pow(10,3)-1 )
-        filter2 = (pd_cpu['price'] < price + math.pow(10,3)-1 )
-        msg3 = ', 推薦硬體：' + str ( pd_cpu[(filter1 & filter2)] )
+        price1 = int(price) - math.pow(10,logN)
+        price2 = int(price) + math.pow(10,logN)-1
+        print(str(price1))
+        print(str(price2))
+        cur.execute("SELECT * FROM %s WHERE price > %d and price < %d"%(str(hardware).lower(), int(price1), int(price2)))
+        result = cur.fetchall()
+        cur . close () 
+        conn . close()
+
+        result = [[str(x) for x in tup] for tup in result]
+        result[0]
+
+        for r in result:
+            r = [[str(x) for x in tup] for tup in r]
+        result
+        msg3='推薦硬體：'
+        for r in result:
+            if str(hardware).lower() == 'cpu':
+                msg3 = msg3 + "廠牌：%s, 型號：%s, TDP：%s, 價格：%s, 分數：%s, 排名：%s"%(r[1],r[2],str(r[3]),str(r[4]),str(r[5]),str(r[7]))
+            elif str(hardware).lower() == 'ram':
+                msg3 = msg3 + "廠牌：%s, 大小：%s, 規格：%s, 頻率：%s, 價格：%s"%(r[1],r[2],r[3],r[4],r[6])
+            elif str(hardware).lower() == 'ssd':
+                msg3 = msg3 + "廠牌：%s, 型號：%s, 大小%s, 介面：%s, 讀取速度：%s, 寫入速度：%s, 保固年份：%s, 價格：%s"%(r[1],r[2],r[3],r[4],r[5],r[6],r[7],r[8])
+            elif str(hardware).lower() == 'gpu':
+                msg3 = msg3 + "廠牌：%s, 型號：%s, 大小：%s, 時脈：%s, 長度：%s, 保固：%s, 價格：%s"%(r[1],r[2],r[3],r[4],r[9],r[10],r[11])
+            else:
+                msg3 = msg3 + ''.join(r[0]) + ',\n'
+
     # 「全域功能」依「硬體」（功能）列出全部「廠牌」
     elif hardware != None and str(function) == '全部廠牌':
         conn  =  pymysql . connect ( host = '127.0.0.1' ,  user = 'root' ,  passwd = "" ,  db = 'deepbowl' ) 
@@ -45,6 +68,7 @@ def get_one_hardware(hardware=None, price=None, function=None, brand=None, size=
         result[0][0]
         msg3=', 全部廠牌：'
         for r in result:
+
             msg3 = msg3 + ''.join(r[0]) + ',\n'
 
     # 依CPU功能去推薦
@@ -52,34 +76,41 @@ def get_one_hardware(hardware=None, price=None, function=None, brand=None, size=
         
         # 依「硬體」、「功能」推薦「硬體」
         if hardware != None and function != None:
+            conn  =  pymysql . connect ( host = '127.0.0.1' ,  user = 'root' ,  passwd = "" ,  db = 'deepbowl' ) 
+            cur  =  conn . cursor () 
+            #hardware = 'gpu'
+            #game = 'LOL'
             msg = '選擇硬體：' + str(hardware) 
             msg2 = ', 選擇功能：' + str(function)
-            pd_cpu = pd.read_csv(LIST_CSV)
+
             
             much_core=['繪圖', '算圖', '轉檔', '過檔', '渲染', 'render','多核']
             if function in much_core:
-                # pd_cpu[d_cpu['model'].str.cotains('2700X')]
-                filter1 = pd_cpu['model'].str.lower().str.contains('2700x'.lower())
-                msg3 = ', 推薦硬體：' + str ( pd_cpu[(filter1)] )
-
+                cur.execute("SELECT * FROM cpu WHERE model like '%2700x%'")
             much_free='線上遊戲'
             if function in much_free:
-                filter1 = pd_cpu['model'].str.lower().str.contains('8700k'.lower())
-                msg3 = ', 推薦硬體：' + str ( pd_cpu[(filter1)] )
-
+                cur.execute("SELECT * FROM cpu WHERE model like '%8700k%'")
             simple=['文書處理', '瀏覽網頁', '簡單遊戲']
             if function in simple:
-                filter1 = pd_cpu['model'].str.lower().str.contains('g5500'.lower())
-                filter2 = pd_cpu['model'].str.lower().str.contains('2200G'.lower())
-                msg3 = ', 推薦硬體：' + str ( pd_cpu[(filter1 | filter2)] )
-
+                cur.execute("SELECT * FROM cpu WHERE model like '%g5500%' || model like'%2200G%'")
             cheap=['便宜','低預算']
             if function in cheap:
-                filter1 = pd_cpu['model'].str.lower().str.contains('g5500'.lower())
-                filter2 = pd_cpu['model'].str.lower().str.contains('2400G'.lower())
-                msg3 = ', 推薦硬體：' + str ( pd_cpu[(filter1 | filter2)] )
-    
-    
+                cur.execute("SELECT * FROM cpu WHERE model like '%g5500%' || model like'%2400G%'")
+
+            result = cur.fetchall()
+            cur . close () 
+            conn . close()
+
+            result = [[str(x) for x in tup] for tup in result]
+
+            
+            for r in result:
+                r = [[str(x) for x in tup] for tup in r]
+            result
+            msg3=', 推薦硬體：'
+            for r in result:
+                msg3 = msg3 + "廠牌：%s, 型號：%s, TDP：%s, 價格：%s, 分數：%s, 排名：%s"%(r[1],r[2],str(r[3]),str(r[4]),str(r[5]),str(r[7]))
+     
     elif str(hardware).lower() == 'ram':
         # 依ram廠牌、大小去推薦
         if brand != None and size !=None:
@@ -106,7 +137,8 @@ def get_one_hardware(hardware=None, price=None, function=None, brand=None, size=
             result
             msg3=''
             for r in result:
-                msg3 = msg3 + ','.join(r) + '\n'
+                msg3 = msg3 + "廠牌：%s, 大小：%s, 規格：%s, 頻率：%s, 價格：%s"%(r[1],r[2],r[3],r[4],r[6])
+                #msg3 = msg3 + ','.join(r) + '\n'
 
     elif str(hardware).lower() == 'ssd':
         # 依ssd廠牌、大小去推薦
@@ -133,7 +165,8 @@ def get_one_hardware(hardware=None, price=None, function=None, brand=None, size=
             result
             msg3=''
             for r in result:
-                msg3 = msg3 + ','.join(r) + '\n'
+                msg3 = msg3 + "廠牌：%s, 型號：%s, 大小%s, 介面：%s, 讀取速度：%s, 寫入速度：%s, 保固年份：%s, 價格：%s"%(r[1],r[2],r[3],r[4],r[5],r[6],r[7],r[8])
+
         # 推薦MX500系列
         if str(function) == '推薦':
             
@@ -156,7 +189,7 @@ def get_one_hardware(hardware=None, price=None, function=None, brand=None, size=
             result
             msg3=', 推薦硬體：'
             for r in result:
-                msg3 = msg3 + ','.join(r) + '\n'
+                msg3 = msg3 + "廠牌：%s, 型號：%s, 大小%s, 介面：%s, 讀取速度：%s, 寫入速度：%s, 保固年份：%s, 價格：%s"%(r[1],r[2],r[3],r[4],r[5],r[6],r[7],r[8])
 
     elif str(hardware).lower() == 'gpu':
 
@@ -186,7 +219,7 @@ def get_one_hardware(hardware=None, price=None, function=None, brand=None, size=
         result
         msg3=', 推薦硬體：'
         for r in result:
-            msg3 = msg3 + ','.join(r) + '\n'
+            msg3 = msg3 + "廠牌：%s, 型號：%s, 大小：%s, 時脈：%s, 長度：%s, 保固：%s, 價格：%s"%(r[1],r[2],r[3],r[4],r[9],r[10],r[11])
 
     return msg + msg2 + msg3
 import json
