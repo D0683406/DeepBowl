@@ -98,7 +98,7 @@ router.post('/addlist', function(req, res, next) {
             console.log(err);
         }
         res.setHeader('Content-Type', 'application/json');
-        res.redirect('/cpu_rank');
+        res.redirect('/');
     });
 
 });
