@@ -45,8 +45,12 @@
           </button>
         </div>
         <div class="modal-body">
-          <iframe allow="microphone;" width="100%" height="500" src="https://console.dialogflow.com/api-client/demo/embedded/e9eee709-676f-4443-a533-77587c697761">
-          </iframe>
+          <iframe
+    allow="microphone;"
+    width="100%"
+    height="500"
+    src="https://console.dialogflow.com/api-client/demo/embedded/e9eee709-676f-4443-a533-77587c697761">
+</iframe>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -61,6 +65,9 @@
       <div class="swiper-slide sw01">
         <img src="./images/card.jpg" id="home_card">
         <div class="home">
+          <!-- <p id="usetotest">123</p>
+          <p id="usetotest2">456</p> -->
+          <input type="text" class="form-control" id="input_list" placeholder="輸入硬體清單號碼">
           <button type="button" class="btn btn-outline-light" id="home_build">點擊選擇你的電腦配備</button>
           <a href="/"><button type="button" class="btn btn-outline-light" id="build">組電腦</button></a>
           <a href="/cpu_rank"><button type="button" class="btn btn-outline-light" id="rank">硬體排行</button></a>
@@ -422,6 +429,7 @@
   </div>
   <!-- get value from ejs -->
   <script>
+    var listtemp = <%-JSON.stringify(list_data) %>;  
     var cputemp = <%-JSON.stringify(cpu_data) %>;  
     var gputemp = <%-JSON.stringify(gpu_data) %>;  
     var ramtemp = <%-JSON.stringify(ram_data) %>;  
@@ -430,6 +438,82 @@
     var mbtemp = <%-JSON.stringify(mb_data) %>;  
   </script>
 
+  <!-- get list-->
+  <script>
+    var list_code;
+    $("#home_build").click(function () {
+      list_code=document.getElementById('input_list').value;
+      
+      for (var i = 0; i < listtemp.length ; i++) {
+        if (listtemp[i].id == list_code){
+          //document.getElementById("usetotest").innerHTML = listtemp[i].cpu_id;
+          //document.getElementById("usetotest2").innerHTML = i;
+          for (var x = 0; x < cputemp.length; x++) {
+            if (cputemp[x].brand+" "+cputemp[x].model == listtemp[i].cpu_id) {
+              //圖片
+              document.getElementById("cpuimg").src = "images/cpu_images/" + cputemp[x].model + ".png";
+              document.getElementById("cpumodel").innerHTML = cputemp[x].model;
+              document.getElementById("cpubrand").innerHTML = cputemp[x].brand;
+              document.getElementById("cpubenchmark").innerHTML = cputemp[x].benchmark;
+              document.getElementById("cputdp").innerHTML = cputemp[x].TDP;
+              document.getElementById("cpuprice").innerHTML = cputemp[x].price;
+              document.getElementById("globalcpu").value = x;
+            }
+          }
+          for (var x = 0; x < gputemp.length; x++) {
+            if (gputemp[x].brand+" "+gputemp[x].core+" "+gputemp[x].memory == listtemp[i].gpu_id) {
+            document.getElementById("gpuimg").src = "images/gpu_images/" + gputemp[x].core + ".png";
+            document.getElementById("gpucore").innerHTML = gputemp[x].core;
+            document.getElementById("gpubrand").innerHTML = gputemp[x].brand;
+            document.getElementById("gpumemory").innerHTML = gputemp[x].memory;
+            document.getElementById("gpubenchmark").innerHTML = gputemp[x].benchmark;
+            document.getElementById("gputdp").innerHTML = gputemp[x].TDP;
+            document.getElementById("gpuwarranty").innerHTML = gputemp[x].warranty;
+            document.getElementById("gpuprice").innerHTML = gputemp[x].price;
+            document.getElementById("globalgpu").value = x;
+            }
+          }
+          for (var x = 0; x < ssdtemp.length; x++) {
+            if (ssdtemp[x].brand+" "+ssdtemp[x].model+" "+ssdtemp[x].size == listtemp[i].ssd_id) {
+              document.getElementById("ssdbrand").innerHTML = ssdtemp[x].brand;
+              document.getElementById("ssdmodel").innerHTML = ssdtemp[x].model;
+              document.getElementById("ssdsize").innerHTML = ssdtemp[x].size;
+              document.getElementById("ssdinterface").innerHTML = ssdtemp[x].interface;
+              document.getElementById("ssdreadspeed").innerHTML = ssdtemp[x].readspeed;
+              document.getElementById("ssdwritespeed").innerHTML = ssdtemp[x].writespeed;
+              document.getElementById("ssdwarranty").innerHTML = ssdtemp[x].warranty;
+              document.getElementById("ssdprice").innerHTML = ssdtemp[x].price;
+              document.getElementById("globalssd").value = x;
+            }
+          }
+          for (var x = 0; x < hddtemp.length; x++) {
+            if (hddtemp[x].brand+" "+hddtemp[x].model+" "+hddtemp[x].size == listtemp[i].hdd_id) {
+              document.getElementById("hddbrand").innerHTML = hddtemp[x].brand;
+              document.getElementById("hddmodel").innerHTML = hddtemp[x].model;
+              document.getElementById("hddsize").innerHTML = hddtemp[x].size;
+              document.getElementById("hddcache").innerHTML = hddtemp[x].cache;
+              document.getElementById("hddrpm").innerHTML = hddtemp[x].rpm;
+              document.getElementById("hddwarranty").innerHTML = hddtemp[x].warranty;
+              document.getElementById("hddprice").innerHTML = hddtemp[x].price;
+              document.getElementById("globalhdd").value = x;
+            }
+          }
+          for (var x = 0; x < ramtemp.length; x++) {
+            if (ramtemp[x].brand+" "+ramtemp[x].size+" "+ramtemp[x].frequency == listtemp[i].ram_id) {
+              document.getElementById("rambrand").innerHTML = ramtemp[x].brand;
+              document.getElementById("ramfrequency").innerHTML = ramtemp[x].frequency;
+              document.getElementById("ramsize").innerHTML = ramtemp[x].size;
+              document.getElementById("ramtype").innerHTML = ramtemp[x].type;
+              document.getElementById("ramprice").innerHTML = ramtemp[x].price;
+              document.getElementById("globalram").value = x;
+            }
+          }
+        }
+
+
+      }
+    });
+  </script>
 
   <!-- cpu value -->
   <script>
@@ -584,7 +668,7 @@
     if (rs) {
         window.location.href = "/userDelete?id=" + id;
     }
-}
+  }
 
   </script>
  
@@ -609,10 +693,10 @@
         prevEl: '.swiper-button-prev',
       },
     });
-    document.querySelector('#home_build').addEventListener('click', function (e) {
-      e.preventDefault();
-      swiper.slideTo(1, 0);
-    });
+    //document.querySelector('#home_build').addEventListener('click', function (e) {
+    //  e.preventDefault();
+    //  swiper.slideTo(1, 0);
+    //});
     document.querySelector('#RESTART').addEventListener('click', function (e) {
       e.preventDefault();
       swiper.slideTo(0, 0);
@@ -783,6 +867,7 @@
       swiper.slideTo(6, 0);
     });
   </script>
+
 </body>
 
 </html>

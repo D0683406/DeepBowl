@@ -22,55 +22,55 @@ router.get('/', function(req, res, next) {
     });
     db.query('SELECT * FROM cpu', function(err, rows) {
         //在Shell輸出rows
-        if (err) throw err;{
-            console.log(rows);
-        }
+ //       if (err) throw err;{
+//            console.log(rows);
+//        }
         //回傳資料 rows 以陣列格式儲存
         cpu_data = rows;
     });
     db.query('SELECT * FROM gpu', function(err, rows) {
-        if (err) throw err;{
-            console.log(rows);
-        }
+ //       if (err) throw err;{
+ //           console.log(rows);
+//        }
         //回傳資料 rows 以陣列格式儲存
         gpu_data = rows;
     });
     db.query('SELECT * FROM ram', function(err, rows) {
-        if (err) throw err;{
-            console.log(rows);
-        }
+//        if (err) throw err;{
+//            console.log(rows);
+//        }
         //回傳資料 rows 以陣列格式儲存
         ram_data = rows;
     });
     db.query('SELECT * FROM ssd', function(err, rows) {
         //在Shell輸出rows
-        if (err) throw err;{
-            console.log(rows);
-        }
+//        if (err) throw err;{
+//            console.log(rows);
+//        }
         //回傳資料 rows 以陣列格式儲存
         ssd_data = rows;
     });
     db.query('SELECT * FROM ssd', function(err, rows) {
         //在Shell輸出rows
-        if (err) throw err;{
-            console.log(rows);
-        }
+//        if (err) throw err;{
+//            console.log(rows);
+//        }
         //回傳資料 rows 以陣列格式儲存
         ssd_data = rows;
     });
     db.query('SELECT * FROM hdd', function(err, rows) {
         //在Shell輸出rows
-        if (err) throw err;{
-            console.log(rows);
-        }
+//        if (err) throw err;{
+ //           console.log(rows);
+//        }
         //回傳資料 rows 以陣列格式儲存
         hdd_data = rows;
     });
     db.query('SELECT * FROM mb', function(err, rows) {
         //在Shell輸出rows
-        if (err) throw err;{
-            console.log(rows);
-        }
+        //if (err) throw err;{
+        //    console.log(rows);
+        //}
         //回傳資料 rows 以陣列格式儲存
         mb_data = rows;
 

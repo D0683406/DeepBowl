@@ -1,3 +1,4 @@
+#%%
 #hardware
 import requests
 from bs4 import BeautifulSoup,Tag
@@ -5,7 +6,7 @@ import pandas as pd
 from datetime import datetime
 from dateutil import parser
 import math
-import  pymysql 
+import pymysql 
 
 def get_one_hardware(hardware=None, price=None, function=None, brand=None, size=None, game=None):
 
